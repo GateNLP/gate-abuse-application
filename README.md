@@ -6,6 +6,7 @@ dates back to at least 2015. Funding has come from numerous sources including, b
 to, Nesta, SoBigData, EDMO Ireland, and the FCDO.
 
 This version is based upon the Political Abuse Monitor which is available through GATE Cloud:
-https://cloud.gate.ac.uk/shopfront/displayItem/political-abuse-monitor -- if you want to experiment
-with the application we strongly recommend you use the hosted service rather than attempting
-to run the application locally; it is unlikely we will be able to provide support
+https://cloud.gate.ac.uk/shopfront/displayItem/political-abuse-monitor -- while it does differ
+from that version if you want to experiment with the application we strongly recommend you start
+with the hosted service rather than attempting to run the application locally; it is unlikely
+we will be able to provide support
