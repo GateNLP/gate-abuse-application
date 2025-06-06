@@ -1,0 +1,80 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Veto
+Input: Token AbuseTerm Split OffensiveLookup SensitiveLookup SlurLookup NotAbuseLookup CandidateTarget
+Options: control = appelt
+
+
+
+//"fucked" in this kind of phrase tends not to be abuse.
+Rule: YouHaveSeriouslyFuckedScottishLabour
+Priority: 700
+
+( 
+ (({OffensiveLookup within Token.string=="fucked"})
+ ({SensitiveLookup})):tag
+)
+--> 
+ :tag.Veto = {rule="veto:YouHaveSeriouslyFuckedScottishLabour"}
+
+
+
+//This can't just go in the stop gaz because I want that sensitive word
+//in the middle.
+
+Rule: DirtyRussianMoney
+Priority: 700
+
+(
+ (({OffensiveLookup within Token.string=="dirty"}|
+  {OffensiveLookup within Token.string=="Dirty"}|
+  {OffensiveLookup within Token.string=="DIRTY"})
+ ({SensitiveLookup})[0,1]
+ ({Token.string=="ops"}|
+  {Token.string=="Ops"}|
+  {Token.string=="OPS"}|
+  {Token.string=="money"}|
+  {Token.string=="Money"}|
+  {Token.string=="MONEY"}|
+  {Token.string=="politics"}|
+  {Token.string=="Politics"}|
+  {Token.string=="POLITICS"}
+  {Token.string=="backed"}|
+  {Token.string=="Backed"}|
+  {Token.string=="BACKED"})
+)):tag
+--> 
+ :tag.Veto = {rule="veto:DirtyRussianMoney"}
+
+Rule: AbuseInUserName
+Priority: 500
+// we don't want to recognise twitter names which potentially contain abuse as being abusive
+// e.g. @STFU
+
+(
+ {OffensiveLookup within UserID}|
+ {SlurLookup within UserID}|
+ {SensitiveLookup within UserID}
+):tag
+--> 
+ :tag.Veto = {rule="veto:AbuseInUserName"}
+ 
+ Rule: AbuseInCandidateTarget
+Priority: 500
+/* we (probably) don't want to recognise Person names (candidate term) which potentially contain abuse as being abusive
+ e.g. Peter Cretin. This is somewhat risky because they might be calling Peter a cretin, but in this case
+ we don't know that Peter is the addressee, so...
+*/ 
+
+(
+ {OffensiveLookup within CandidateTarget}|
+ {SlurLookup within CandidateTarget}|
+ {SensitiveLookup within CandidateTarget}
+):tag
+--> 
+ :tag.Veto = {rule="veto:AbuseInCandidateTarget"}

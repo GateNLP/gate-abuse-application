@@ -1,0 +1,12 @@
+Phase:Cleanup
+Input: URL AbuseLookup OffensiveLookup HatredDebateLookup
+Options: control=all
+
+Rule: clean
+(
+	({AbuseLookup within URL}|{OffensiveLookup within URL}|{HatredDebateLookup within URL}):match
+)
+-->
+:match {
+	inputAS.removeAll(matchAnnots);
+}

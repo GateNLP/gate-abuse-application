@@ -1,0 +1,154 @@
+Phase: MakePolitician
+Input: Candidate MP LeaderNotMP Europarl2019Candidate Europarl8MEP
+Options: control = all
+
+Rule: CandidatetoPolitician
+Priority: 100
+(
+ {Candidate}
+):tag
+-->
+
+{
+  gate.AnnotationSet tagAS = (gate.AnnotationSet) bindings.get("tag");
+  gate.Annotation tagAnn = (gate.Annotation) tagAS.iterator().next();
+  //Possibly better ones
+  long thislength = tagAnn.getEndNode().getOffset()-tagAnn.getStartNode().getOffset();
+  AnnotationSet better = gate.Utils.getOverlappingAnnotations(inputAS.get("Candidate"), tagAnn);
+  int no = 0;
+  for(Annotation poss : better){
+    if(poss!=tagAnn){
+      long posslen = poss.getEndNode().getOffset()-poss.getStartNode().getOffset();
+      if(posslen>thislength){
+        no = 1;
+      }
+    }
+  }
+  if(no==0){   //there's not a better one
+      FeatureMap features = Factory.newFeatureMap();
+      features.putAll(tagAnn.getFeatures());
+      features.put("kind", "Candidate");
+      outputAS.add(tagAS.firstNode(), tagAS.lastNode(), "Politician", features);
+  }
+}
+      
+      
+Rule: MPtoPolitician
+Priority: 100
+(
+ {MP}
+):tag
+-->
+
+{
+ gate.AnnotationSet tagAS = (gate.AnnotationSet) bindings.get("tag");
+ gate.Annotation tagAnn = (gate.Annotation) tagAS.iterator().next();
+ //Possibly better ones
+ long thislength = tagAnn.getEndNode().getOffset()-tagAnn.getStartNode().getOffset();
+ AnnotationSet better = gate.Utils.getOverlappingAnnotations(inputAS.get("MP"), tagAnn);
+ int no = 0;
+ for(Annotation poss : better){
+    if(poss!=tagAnn){
+      long posslen = poss.getEndNode().getOffset()-poss.getStartNode().getOffset();
+      if(posslen>thislength){
+        no = 1;
+      }
+    }
+  }
+  if(no==0){   //there's not a better one
+      FeatureMap features = Factory.newFeatureMap();
+      features.putAll(tagAnn.getFeatures());
+      features.put("kind", "MP");
+      outputAS.add(tagAS.firstNode(), tagAS.lastNode(), "Politician", features);
+  }
+}
+      
+Rule: LeadertoPolitician
+Priority: 50
+(
+ {LeaderNotMP}
+):tag
+-->
+
+{
+  gate.AnnotationSet tagAS = (gate.AnnotationSet) bindings.get("tag");
+  gate.Annotation tagAnn = (gate.Annotation) tagAS.iterator().next();
+  //Possibly better ones
+  long thislength = tagAnn.getEndNode().getOffset()-tagAnn.getStartNode().getOffset();
+  AnnotationSet better = gate.Utils.getOverlappingAnnotations(inputAS.get("LeaderNotMP"), tagAnn);
+  int no = 0;
+  for(Annotation poss : better){
+    if(poss!=tagAnn){
+      long posslen = poss.getEndNode().getOffset()-poss.getStartNode().getOffset();
+      if(posslen>thislength){
+        no = 1;
+      }
+    }
+  }
+  if(no==0){   //there's not a better one
+      FeatureMap features = Factory.newFeatureMap();
+      features.putAll(tagAnn.getFeatures());
+      features.put("kind", "Other");
+      outputAS.add(tagAS.firstNode(), tagAS.lastNode(), "Politician", features);
+  }
+}  
+
+Rule: Europarl2019CandidatetoPolitician
+Priority: 50
+(
+ {Europarl2019Candidate}
+):tag
+-->
+
+{
+  gate.AnnotationSet tagAS = (gate.AnnotationSet) bindings.get("tag");
+  gate.Annotation tagAnn = (gate.Annotation) tagAS.iterator().next();
+  //Possibly better ones
+  long thislength = tagAnn.getEndNode().getOffset()-tagAnn.getStartNode().getOffset();
+  AnnotationSet better = gate.Utils.getOverlappingAnnotations(inputAS.get("Europarl2019Candidate"), tagAnn);
+  int no = 0;
+  for(Annotation poss : better){
+    if(poss!=tagAnn){
+      long posslen = poss.getEndNode().getOffset()-poss.getStartNode().getOffset();
+      if(posslen>thislength){
+        no = 1;
+      }
+    }
+  }
+  if(no==0){   //there's not a better one
+    FeatureMap features = Factory.newFeatureMap();
+    features.putAll(tagAnn.getFeatures());
+    features.put("kind", "Europarl2019Candidate");
+    outputAS.add(tagAS.firstNode(), tagAS.lastNode(), "Politician", features);
+  }
+}
+
+Rule: Europarl8MEPtoPolitician
+Priority: 50
+(
+ {Europarl8MEP}
+):tag
+-->
+
+{
+  gate.AnnotationSet tagAS = (gate.AnnotationSet) bindings.get("tag");
+  gate.Annotation tagAnn = (gate.Annotation) tagAS.iterator().next();
+  //Possibly better ones
+  long thislength = tagAnn.getEndNode().getOffset()-tagAnn.getStartNode().getOffset();
+  AnnotationSet better = gate.Utils.getOverlappingAnnotations(inputAS.get("Europarl8MEP"), tagAnn);
+  int no = 0;
+  for(Annotation poss : better){
+    if(poss!=tagAnn){
+      long posslen = poss.getEndNode().getOffset()-poss.getStartNode().getOffset();
+      if(posslen>thislength){
+        no = 1;
+      }
+    }
+  }
+  if(no==0){   //there's not a better one
+    FeatureMap features = Factory.newFeatureMap();
+    features.putAll(tagAnn.getFeatures());
+    features.put("kind", "Europarl8MEP");
+    outputAS.add(tagAS.firstNode(), tagAS.lastNode(), "Politician", features);
+  }
+}

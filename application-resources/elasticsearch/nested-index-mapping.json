@@ -1,0 +1,168 @@
+{
+  "settings": {
+    "index.mapping.total_fields.limit": 2000,
+    "analysis": {
+      "normalizer": {
+         "keyword_lowercase": {
+            "type": "custom",
+	    "filter": ["lowercase"]
+	 }
+      },
+      "analyzer": {
+        "my_stop_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "english_stop"
+          ],
+          "char_filter": [
+            "html_strip"
+          ]
+        }
+      },
+      "filter": {
+        "english_stop": {
+          "type": "stop",
+          "stopwords": "_english_"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "runtime": {
+
+    },
+    "properties": {
+     "entities.Tweet.user.description": {
+      "type": "text",
+      "analyzer": "my_stop_analyzer"
+      },
+      "text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.extended_tweet.full_text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.quoted_status.user.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.quoted_status.text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+       },
+      "entities.Tweet.quoted_status.extended_tweet.full_text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.user.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.extended_tweet.full_text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.quoted_status.user.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.TweetAuthor.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.TweetRetweetedAuthor.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.TweetRepliedTo.description": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.quoted_status.text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.retweeted_status.quoted_status.extended_tweet.full_text": {
+       "type": "text",
+       "analyzer": "my_stop_analyzer"
+      },
+      "entities.Tweet.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.user.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+       },
+      "entities.Tweet.quoted_status.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.quoted_status.user.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.replied_to_status.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.replied_to_status.user.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.retweeted_status.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.retweeted_status.user.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.retweeted_status.quoted_status.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.retweeted_status.quoted_status.user.created_at": {
+       "type":   "date",
+       "format": "EEE MMM dd HH:mm:ss Z yyyy"
+      },
+      "entities.Tweet.coordinates.coordinates": {
+       "type": "geo_point"
+      },
+      "created_time": {
+       "type": "date"
+      },
+      "entities.Abuse": {
+       "type": "nested"
+      },
+      "entities.Emoji": {
+       "type": "nested"
+      },
+      "entities.SentenceSentiment": {
+       "type": "nested"
+      },
+      "entities.hashtags.text": {
+       "type":   "keyword",
+       "normalizer": "keyword_lowercase"
+      },
+      "retweet": {
+       "type": "nested",
+       "properties": {
+         "retweeted_at": {
+           "type":   "date",
+           "format": "EEE MMM dd HH:mm:ss Z yyyy"
+         }
+       }
+      }
+    }
+  }
+}
+

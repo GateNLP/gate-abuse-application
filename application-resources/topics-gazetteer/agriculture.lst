@@ -1,0 +1,15 @@
+agriculture	modifier=head
+farming	modifier=head
+farmers	modifier=head
+crops	modifier=head
+GM crops	head=crops
+non-GM crops	head=crops
+Common Agricultural and Fisheries Policies
+GMO	head=gmo
+GM	modifier=pre
+neonicotinoid
+glyphosate
+roundup
+animal welfare	head=animal
+animal	modifier=head
+animals	head=animal

@@ -1,0 +1,92 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: LastResort
+Input: Split AbuseTerm Abuse SlurLookup Veto CandidateTarget OffensiveLookup AbusePhrase NounChunk SingleAbuseTerm Token
+Options: control = appelt
+
+
+Rule: BlockAbuseAlready
+Priority: 700
+
+ ({Abuse}|{AbusePhrase}):tag
+--> 
+ {}
+ 
+ 
+
+Rule: BlockNPisIdiot
+Priority: 500
+// Parler are scum.
+
+(
+ {NounChunk}
+ ({Token})[0,3]
+ {AbuseTerm}|{SingleAbuseTerm}
+)
+-->
+{}
+
+Rule: BlockTheIdiot
+Priority: 500
+// The bastard.
+
+
+(
+ {Token.category == DT}
+ {AbuseTerm}|{SingleAbuseTerm}
+)
+-->
+{}
+
+Rule: JustIdiot
+Priority: 300
+
+( 
+ ({AbuseTerm.plural != "true"})):tag
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "low",rule="last-resort:JustIdiot", AbuseTermRule=:tag.AbuseTerm.rule},
+  :tag.AbusePhrase = {rule = "last-resort:JustIdiot", AbuseTermRule=:tag.AbuseTerm.rule}
+
+
+Rule: JustIdiots
+Priority: 300
+
+( 
+ ({AbuseTerm.plural == "true"})):tag
+--> 
+ :tag.Abuse = {target = "other", confidence = "low",rule="last-resort:JustIdiots", AbuseTermRule=:tag.AbuseTerm.rule},
+ :tag.AbusePhrase = {rule = "last-resort:JustIdiots", AbuseTermRule=:tag.AbuseTerm.rule}
+
+
+Rule:OffensiveTarget
+Priority:400
+// saying something offensive about a specific person who's a target according
+// to the sentiment app, e.g. Fuck Maria Ressa, or fuck @mariaressa
+
+ (
+  (({OffensiveLookup}|{SlurLookup})[1,3]):tag
+  ({CandidateTarget}):target
+ ):abuse
+  -->
+  :tag.Abuse = {target = :target.CandidateTarget@cleanString, rule = "last-resort:OffensiveTarget"},
+  :tag.AbuseTerm = {kind = "OffensiveTargetAbuseTerm"},
+  :abuse.AbusePhrase = {rule = "last-resort:OffensiveTarget"}
+  
+  Rule: TargetOffensive
+  Priority:100
+  // as for OffensiveTarget but the other way round, e.g. "Maria Ressa fuckwit"
+  
+  (
+  ({CandidateTarget}):target
+  (({OffensiveLookup}|{SlurLookup})[1,3]):tag
+  ):abuse
+ ({Split})
+  -->
+  :tag.Abuse = {target = :target.CandidateTarget@cleanString, rule = "last-resort:TargetOffensive"},
+  :tag.AbuseTerm = {kind = "OffensiveTargetAbuseTerm"},
+  :abuse.AbusePhrase = {rule = "last-resort:TargetOffensive"}

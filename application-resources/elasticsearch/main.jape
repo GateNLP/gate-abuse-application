@@ -1,0 +1,8 @@
+MultiPhase:   Elasticsearch
+Phases: 
+
+unnest-abuse
+fix-cyrillic-lang
+content-words
+article-framing
+//malta

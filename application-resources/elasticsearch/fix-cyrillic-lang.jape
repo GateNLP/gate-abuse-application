@@ -1,0 +1,25 @@
+Phase: FixCyrillicLang
+Input: Tweet
+Options: control = once
+
+Rule: UKtoRU
+(
+ {Tweet.lang == "uk", Tweet contains {Token.string =~ "(?i)[ёъыэ]"}}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+  
+  theTweet.getFeatures().put("lang","ru");  
+}
+
+Rule: RUtoUK
+(
+ {Tweet.lang == "ru", Tweet contains {Token.string =~ "(?i)[ґєії]"}}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+  
+  theTweet.getFeatures().put("lang","uk");  
+}

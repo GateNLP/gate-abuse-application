@@ -1,0 +1,24 @@
+Imports: {
+	import gate.Utils;
+	import org.apache.commons.lang.StringUtils;
+}
+
+Phase: BackUpMinorType
+Input: Author RetweetedAuthor ReplyTo
+Options: control = all
+
+Rule: BackUp
+({Author} | {RetweetedAuthor} | {ReplyTo}):author
+-->
+
+{
+	AnnotationSet authAnnotations = bindings.get("author");
+	for (Annotation authAnnotation : authAnnotations) {
+		if(authAnnotation.getFeatures().get("minorType")!=null){
+			String politicianType = authAnnotation.getFeatures().get("minorType").toString();
+			authAnnotation.getFeatures().put("politicianType",politicianType);
+		}
+	}
+}
+
+

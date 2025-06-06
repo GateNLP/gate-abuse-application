@@ -1,0 +1,26 @@
+Imports: {
+    import java.util.HashSet;
+}
+
+Phase: TopicOnDocument
+Input: Topic
+Options: control = all
+
+Rule: TopicOnDocument
+({Topic}):topic
+-->
+:topic {
+  for (Annotation topic : topicAnnots) {
+    String theme = (String)topic.getFeatures().get("theme");
+    FeatureMap documentFeatures = doc.getFeatures();
+
+    HashSet<String> documentThemes;
+    if (!documentFeatures.containsKey("themes")) {
+      documentThemes = new HashSet<String>();
+      documentFeatures.put("themes", documentThemes);
+    } else {
+      documentThemes = (HashSet<String>) documentFeatures.get("themes");
+    }
+    documentThemes.add(theme);
+  }
+}

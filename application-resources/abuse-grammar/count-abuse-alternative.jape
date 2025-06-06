@@ -1,0 +1,49 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: CountAbuse
+Input: Abuse
+Options: control = all
+
+
+
+/*
+This version of the rule adds a second Abuse annotation if there's a single Abuse annotation
+containing Lookups with 2 different types, e.g. "Philippine liar" would get one racist and 
+one reputation abuse annotation. this increases the count abnormally overall for abuse, but
+does mean you can search on either type. Without this, the type defaults to however the original 
+Abuse rule selected it.
+*/
+
+
+
+
+Rule: CountAbuseAlternative
+Priority: 100
+
+( 
+ ({Abuse})):tag
+--> 
+{  
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+
+HashSet<Annotation> all = new HashSet<Annotation>();
+ArrayList<String> list = new ArrayList<String>();
+
+AnnotationSet abuseTerms = gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuse, "AbuseTerm");
+Annotation abuseTerm = abuseTerms.iterator().next();
+
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SensitiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "OffensiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SlurLookup"));
+
+abuse.getFeatures().put("abusiveTermCount", all.size());
+}
+
+
+

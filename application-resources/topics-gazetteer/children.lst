@@ -1,0 +1,31 @@
+youth	modifier=pre
+youth offender	head=youth offenders
+youth offenders	head=youth offenders
+Youth Justice Board	head=youth offenders
+Youth Offending Team	head=youth offenders
+Youth Offending Teams	head=youth offenders
+YJB	head=youth offenders
+YOT	head=youth offenders
+YOTs	head=youth offenders
+Troubled Families Programme
+daycare	modifier=head
+nurseries	modifier=head
+nursery	modifier=head
+pre-school	modifier=pre
+National Day Nurseries Association
+NDNA
+childcare	modifier=head
+YOI	head=youth offenders
+YOIs	head=youth offenders
+Young Offenders Institution	head=youth offenders
+students	modifier=head
+student	modifier=head
+youth unemployment	head=youth
+youth employment	head=youth
+youth offending	modifier=pre
+young offenders	head=youth offenders
+young offender	head=youth offenders
+young people	head=youth
+child
+children
+youths

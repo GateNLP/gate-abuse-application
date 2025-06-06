@@ -1,0 +1,39 @@
+Imports: {
+    import static gate.Utils.*;
+}
+Phase: GetLongURLs
+Input: urls media
+Options: control = brill
+
+/* Get the latitude and longitude from the metadata */
+
+Rule:GetLongURLs
+Priority: 1000
+( 
+ {urls} | {media}
+):urls
+ -->
+{
+	AnnotationSet URLs = bindings.get("urls");
+
+	for (Annotation url : URLs) {
+		String longURL = (String) url.getFeatures().get("expanded_url");
+                if(longURL != null) {
+                  longURL = longURL.replace("\n", " ");
+                }
+		String displayURL = (String) url.getFeatures().get("display_url");
+
+		for (Annotation outputURL : getCoextensiveAnnotations(outputAS, url, "URL")) {
+			FeatureMap outputFeatures = outputURL.getFeatures();
+			outputFeatures.put("string", longURL);
+			outputFeatures.put("expanded_url", longURL);
+			outputFeatures.put("orig_string", displayURL);
+
+			outputFeatures.put("mimir", longURL);
+		}
+	}
+}
+
+
+
+

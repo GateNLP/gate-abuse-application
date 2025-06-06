@@ -1,0 +1,23 @@
+Phase: AbuseCountToFirstToken
+Input: Tweet
+Options: control = appelt
+
+Rule: GetAuthor
+(
+ {Tweet}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+  int abuseCount = 0;
+ 
+  AnnotationSet abuseAnnotations = gate.Utils.getContainedAnnotations(inputAS, theTweet, "Abuse");
+  for(Annotation abAnn: abuseAnnotations){
+    if (abAnn.getFeatures().containsKey("abusiveTermCount"))
+        abuseCount += (int)abAnn.getFeatures().get("abusiveTermCount");
+    else
+        abuseCount++;
+  }
+
+  doc.getFeatures().put("abuse_count", abuseCount);
+}

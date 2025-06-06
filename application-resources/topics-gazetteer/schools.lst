@@ -1,0 +1,43 @@
+education	head=education
+literacy	head=literacy
+illiteracy	head=literacy
+schools	modifier=head
+language skills
+Local Education Authority	head=education
+private schools	head=public schools
+public schools	head=public schools
+private school	head=public schools
+public school	head=public schools
+state school	head=state schools
+state education	head=state schools
+private education	head=state schools
+home schooling
+private schooling	head=state schools
+grammar school
+comprehensive school
+primary school	head=primary schools
+primary schools	head=primary schools
+secondary school	head=secondary schools
+secondary schools	head=secondary schools
+kindergarten
+literacy rate	head=literacy
+literacy rates	head=literacy
+A levels
+GCSEs
+teachers	head=teachers
+OFSTED
+teaching staff	head=teachers
+teaching	head=teachers
+qualification	head=qualifications
+qualifications	head=qualifications
+teacher	head=teachers
+school	modifier=head
+free school meal	head=free school meals
+free school meals	head=free school meals
+education system	head=education
+Department of Education	head=education
+GCSE
+Free Schools	head=free schools
+Education Secretary	head=education
+free school	head=free schools
+school closures

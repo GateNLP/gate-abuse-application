@@ -1,0 +1,130 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+
+/* It's important to understand how this works. If an instance of abuse contains multiple 
+abuse types (e.g. reputation, sexist) it will create multiple Abuse annotations, one for each
+type. These are flagged with a multiple-type=true flag (default is false) and with a count of
+the number of different types as the value of the feature type-count on the Abuse annotation.
+
+If searching in e.g. Kibana, make sure you search on tweets that contain Abuse, not on the 
+Abuse annotation itself, to get the counts right.
+*/
+
+Phase: CountAbuse
+Input: Abuse
+Options: control = appelt
+
+
+
+Rule: CountAbuseSingleTerm
+Priority: 200
+
+ ({Abuse contains SingleAbuseTerm}):tag
+--> 
+{  
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+
+HashSet<Annotation> all = new HashSet<Annotation>();
+ArrayList<String> list = new ArrayList<String>();
+
+AnnotationSet abuseTerms = gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuse, "SingleAbuseTerm");
+Annotation abuseTerm = abuseTerms.iterator().next();
+
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SensitiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "OffensiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SlurLookup"));
+
+
+abuse.getFeatures().put("abusiveTermCount", all.size());
+
+int multiple = 0;
+for(Annotation ann:all){
+ if(ann.getFeatures().get("type")!=null){
+	++multiple;
+ }
+}
+abuse.getFeatures().put("multiple-type", multiple > 1);
+abuse.getFeatures().put("type-count", multiple);
+abuse.getFeatures().put("countRule", "CountAbuseSingleTerm");
+
+
+
+int removeBase = 0;
+for(Annotation ann:all){
+ if(ann.getFeatures().get("type")!=null){
+  removeBase = 1;
+  FeatureMap fm = Factory.newFeatureMap();
+  fm.putAll(abuse.getFeatures());
+  fm.putAll(ann.getFeatures());
+  //fm.put("multiple-type", "true");
+  gate.Utils.addAnn(doc.getAnnotations(), abuse, "Abuse", fm);
+ }
+}
+
+if(removeBase==1){
+ doc.getAnnotations().remove(abuse);
+}
+
+}
+
+
+Rule: CountAbuse
+Priority: 100
+
+( 
+ ({Abuse})):tag
+--> 
+{  
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+
+HashSet<Annotation> all = new HashSet<Annotation>();
+ArrayList<String> list = new ArrayList<String>();
+
+AnnotationSet abuseTerms = gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuse, "AbuseTerm");
+Annotation abuseTerm = abuseTerms.iterator().next();
+
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SensitiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "OffensiveLookup"));
+all.addAll(gate.Utils.getContainedAnnotations(doc.getAnnotations(), abuseTerm, "SlurLookup"));
+
+
+abuse.getFeatures().put("abusiveTermCount", all.size());
+
+int multiple = 0;
+for(Annotation ann:all){
+ if(ann.getFeatures().get("type")!=null){
+	++multiple;
+ }
+}
+abuse.getFeatures().put("multiple-type", multiple > 1);
+abuse.getFeatures().put("type-count", multiple);
+abuse.getFeatures().put("countRule", "CountAbuse");
+
+
+
+
+
+int removeBase = 0;
+for(Annotation ann:all){
+ if(ann.getFeatures().get("type")!=null){
+  removeBase = 1;
+  FeatureMap fm = Factory.newFeatureMap();
+  fm.putAll(abuse.getFeatures());
+  fm.putAll(ann.getFeatures());
+  //fm.put("multiple-type", "true");
+  gate.Utils.addAnn(doc.getAnnotations(), abuse, "Abuse", fm);
+ }
+}
+
+if(removeBase==1){
+ doc.getAnnotations().remove(abuse);
+}
+
+}

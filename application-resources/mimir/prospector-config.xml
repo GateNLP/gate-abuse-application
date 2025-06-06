@@ -1,0 +1,139 @@
+<prospectorConfig>
+  <title>GATE HATE for POLITICS</title>
+  <allowQueryCustomization>true</allowQueryCustomization>
+  <searchEditors>
+    <panelConfig>
+      <panelType>MimirSearchEditor</panelType>
+      <title>Custom Query</title>
+    </panelConfig>
+  </searchEditors>
+  <queryModifiers/>
+  <searchResultsViews>
+    <panelConfig>
+      <panelType>DocumentListView</panelType>
+      <title>Documents</title>
+      <params class="linked-hash-map">
+        <entry>
+          <string>documentMetadataFields</string>
+          <string-array>
+            <string>author</string>
+            <string>timestamp</string>
+            <string>retweet_of_screen_name</string>
+          </string-array>
+        </entry>
+      </params>
+    </panelConfig>
+    <panelConfig>
+      <panelType>TermSetEditor</panelType>
+      <title>Terms</title>
+      <params class="linked-hash-map">
+        <entry>
+          <string>ontologyName</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>ontologyRootClassUri</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>ontologyShowInstances</string>
+          <boolean>false</boolean>
+        </entry>
+        <entry>
+          <string>ontologyShowRoot</string>
+          <boolean>false</boolean>
+        </entry>
+      </params>
+      <properties class="linked-hash-map">
+        <entry>
+          <string>queryTemplates</string>
+          <list>
+            <termsQueryTemplate>
+              <name>Words</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>mimir</subIndexName>
+              <blockStopWords>true</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Tweet authors</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>tweet_author</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Reply targets</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>in_reply_to</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Retweeted politicians</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>retweeted_politician</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Hashtags</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>hashtag_string</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>User mentions</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>user_id</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Top-level themes</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>topic_theme</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Sub-themes</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>topic_subtheme</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Detailed topics</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>topic_description</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Abusive words</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>abuse_string</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>Offensive words</name>
+              <subIndexType>TOKENS</subIndexType>
+              <subIndexName>offensive_string</subIndexName>
+              <blockStopWords>false</blockStopWords>
+            </termsQueryTemplate>
+            <termsQueryTemplate>
+              <name>{Topic}</name>
+              <subIndexType>ANNOTATIONS</subIndexType>
+              <subIndexName>Topic</subIndexName>
+              <blockStopWords>true</blockStopWords>
+            </termsQueryTemplate>
+          </list>
+        </entry>
+      </properties>
+    </panelConfig>
+  </searchResultsViews>
+  <analyserViews>
+    <panelConfig>
+      <panelType>AssociationMatrixView</panelType>
+      <title>Association Matrix</title>
+    </panelConfig>
+    <panelConfig>
+      <panelType>AssociationChartView</panelType>
+      <title>Association Chart</title>
+    </panelConfig>
+  </analyserViews>
+  <classToAnnotation class="linked-hash-map"/>
+</prospectorConfig>

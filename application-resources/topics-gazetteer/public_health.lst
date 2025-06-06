@@ -1,0 +1,39 @@
+public health
+health
+healthcare
+hospital	head=hospitals
+hospitals	head=hospitals
+health service	head=health service
+health services	head=health service
+A & E	subtheme=nhs
+nurse	head=nurses
+nurses	head=nurses
+doctor	head=doctors
+doctors	head=doctors
+patients
+mental health
+physical health
+A&E	subtheme=nhs
+private hospital
+private healthcare
+life expectancy
+suicide
+nursing
+GP	head=GPs
+GPs	head=GPs
+Accident and Emergency	subtheme=nhs
+ambulance	subtheme=nhs
+NHS	subtheme=nhs
+outbreak	subtheme=Infectious Disease
+virus	subtheme=Infectious Disease
+infection	subtheme=Infectious Disease
+carer	subtheme=Carers
+carers	subtheme=Carers
+symptoms
+pandemic	subtheme=Infectious Disease
+sick
+medical
+paramedic
+paramedics
+ppe
+personal protective equipment

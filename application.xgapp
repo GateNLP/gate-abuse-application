@@ -1,0 +1,2701 @@
+<gate.util.persistence.GateApplication>
+  <urlList class="gate.util.persistence.CollectionPersistence">
+    <localList>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>format-twitter</artifact>
+        <version>8.9-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>annie</artifact>
+        <version>9.1-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>annie</artifact>
+        <version>8.7-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>format-twitter</artifact>
+        <version>8.8-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>twitter</artifact>
+        <version>9.1-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>stanford-corenlp</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>groovy</artifact>
+        <version>8.6</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>format-json</artifact>
+        <version>8.9-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>tagger-np-chunking</artifact>
+        <version>8.5</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>sentiment</artifact>
+        <version>1.0</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>language-identification</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>stringannotation</artifact>
+        <version>4.2-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>annie</artifact>
+        <version>8.6</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>tools</artifact>
+        <version>8.6</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>jape-plus</artifact>
+        <version>8.6</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>tagger-numbers</artifact>
+        <version>8.6</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>developer-tools</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>emoji-tokeniser</artifact>
+        <version>0.1-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/gate-elg-client-0.1/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>abuse-gazetteer</artifact>
+        <version>0.2-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>termraider</artifact>
+        <version>9.0-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>annie</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>tools</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>groovy</artifact>
+        <version>8.6-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+    </localList>
+    <collectionType>java.util.ArrayList</collectionType>
+  </urlList>
+  <application class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
+    <strategiesList class="gate.util.persistence.CollectionPersistence">
+      <localList>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.annotdelete.AnnotationDeletePR</resourceType>
+            <resourceName>Document Reset PR_0003F</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
+            <strategiesList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.annotdelete.AnnotationDeletePR</resourceType>
+                    <resourceName>Document Reset</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>tagASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                        <entry>
+                          <string>textTagName</string>
+                          <string></string>
+                        </entry>
+                        <entry>
+                          <string>copyAnnotations</string>
+                          <boolean>true</boolean>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                        <entry>
+                          <string>annotationTypes</string>
+                          <gate.util.persistence.CollectionPersistence>
+                            <localList>
+                              <string>urls=URL</string>
+                              <string>media=URL</string>
+                              <string>hashtags=Hashtag</string>
+                              <string>user_mentions=UserMention</string>
+                              <string>symbols=Symbol</string>
+                              <string>Tweet</string>
+                              <string>TweetSegment</string>
+                            </localList>
+                            <collectionType>java.util.ArrayList</collectionType>
+                          </gate.util.persistence.CollectionPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.annotransfer.AnnotationSetTransfer</resourceType>
+                    <resourceName>Annotation Set Transfer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>org.knallgrau.utils.textcat.LanguageIdentifier</resourceType>
+                    <resourceName>Tweet Language Identification</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;twitter;9.1-SNAPSHOT/resources/lang_id/default-names.conf</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.Transducer</resourceType>
+                    <resourceName>Add Lang to Tweet</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;twitter;9.1-SNAPSHOT/resources/lang_id/add-to-annotation.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>Emoticons Gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <string></string>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;twitter;9.1-SNAPSHOT/resources/emoticons/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.twitter.tokenizer.TokenizerEN</resourceType>
+                    <resourceName>Twitter Tokenizer (EN)</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.emoji.EmojiTokeniser</resourceType>
+                    <resourceName>Emoji Tokeniser</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.twitter.HashtagTokenizer</resourceType>
+                    <resourceName>Hashtag Tokenizer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>TwitIE gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/twitie-NE-gazetteer/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.splitter.SentenceSplitter</resourceType>
+                    <resourceName>ANNIE Sentence Splitter</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>transducerURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;annie;9.1-SNAPSHOT/resources/sentenceSplitter/grammar/main.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.numbers.NumbersTagger</resourceType>
+                    <resourceName>Numbers Tagger_00064</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;tagger-numbers;8.6/resources/languages/english.xml</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>Number Re-Tokenizer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/twitie/number-tokenizer.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.twitter.Normaliser</resourceType>
+                    <resourceName>Tweet Normaliser (EN)</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.stanford.Tagger</resourceType>
+                    <resourceName>Tweet PoS Tagger (EN)</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>modelFile</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;twitter;9.1-SNAPSHOT/resources/pos/gate-EN-twitter.model</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>ANNIE NE Twitter Transducer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/annie4twitter/main-twitter.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </strategiesList>
+            <prList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[5]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[6]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[7]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[8]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[9]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[10]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[11]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[12]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[13]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[14]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[15]/pr"/>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </prList>
+            <resourceType>gate.creole.ConditionalSerialAnalyserController</resourceType>
+            <resourceName>TwitIE (EN)</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>gate.app.MetadataURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;twitter;9.1-SNAPSHOT/resources/.twitie-en-metadata/metadata.xml</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+                <entry>
+                  <string>gate.gui.icon</string>
+                  <string>TwitIE</string>
+                </entry>
+              </localMap>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
+            <strategiesList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>setsToRemove</string>
+                          <gate.util.persistence.CollectionPersistence>
+                            <localList>
+                              <string>Sentiment</string>
+                            </localList>
+                            <collectionType>java.util.ArrayList</collectionType>
+                          </gate.util.persistence.CollectionPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.annotdelete.AnnotationDeletePR</resourceType>
+                    <resourceName>reset sentiment</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>tagASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                        <entry>
+                          <string>textTagName</string>
+                          <string></string>
+                        </entry>
+                        <entry>
+                          <string>copyAnnotations</string>
+                          <boolean>true</boolean>
+                        </entry>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string></string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.annotransfer.AnnotationSetTransfer</resourceType>
+                    <resourceName>move pre-processing to Sentiment AS</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>tagASName</string>
+                          <string>Original markups</string>
+                        </entry>
+                        <entry>
+                          <string>transferAllUnlessFound</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>annotationTypes</string>
+                          <gate.util.persistence.CollectionPersistence>
+                            <localList>
+                              <string>Person=CandidateTarget</string>
+                              <string>UserMention=CandidateTarget</string>
+                            </localList>
+                            <collectionType>java.util.ArrayList</collectionType>
+                          </gate.util.persistence.CollectionPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.annotransfer.AnnotationSetTransfer</resourceType>
+                    <resourceName>configure target type</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>ANNIE gazetteer for Sentiment</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/twitie-NE-gazetteer/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.morph.Morph</resourceType>
+                    <resourceName>GATE Morphological analyser_0002F</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>languageProcessingGaz</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <null/>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/english/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>%@helpURL</string>
+                          <string>http://gate.ac.uk/userguide/sec:annie:gazetteer</string>
+                        </entry>
+                      </localMap>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>conditionals gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <null/>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/conditional/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>%@helpURL</string>
+                          <string>http://gate.ac.uk/userguide/sec:annie:gazetteer</string>
+                        </entry>
+                      </localMap>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>new sentiment phrases gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <string>\t</string>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/gazetteer/phrases-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>containingAnnotationType</string>
+                          <string>Token</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>root</string>
+                        </entry>
+                        <entry>
+                          <string>inputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.ExtendedGazetteer</resourceType>
+                    <resourceName>new sentiment words extended gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/gazetteer/words-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>containingAnnotationType</string>
+                          <string>Token</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>root</string>
+                        </entry>
+                        <entry>
+                          <string>inputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.ExtendedGazetteer</resourceType>
+                    <resourceName>emotion words synonyms extended gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/affect_emotion/synonyms-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>containingAnnotationType</string>
+                          <string>Token</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>root</string>
+                        </entry>
+                        <entry>
+                          <string>inputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationSet</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.ExtendedGazetteer</resourceType>
+                    <resourceName>conditional verb lists extended gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/conditional/verb-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>unknownTag</string>
+                          <string></string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>mark.chunking.GATEWrapper</resourceType>
+                    <resourceName>Noun Phrase Chunker</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>%@helpURL</string>
+                          <string>http://gate.ac.uk/userguide/sec:parsers:npchunker</string>
+                        </entry>
+                      </localMap>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.VPChunker</resourceType>
+                    <resourceName>Verb Phrase Chunker</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>%@helpURL</string>
+                          <string>http://gate.ac.uk/userguide/sec:parsers:vgchunker</string>
+                        </entry>
+                      </localMap>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>conditionals grammar</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/conditionals/main.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>opinion mining grammar</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/jape/main.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>language processing grammar</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/language-processing/main.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>annotationSetName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>new sentiment words gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <string>\t</string>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/gazetteer/words-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>outputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
+                        </entry>
+                        <entry>
+                          <string>scriptParams</string>
+                          <gate.util.persistence.MapPersistence>
+                            <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                            <localMap>
+                              <entry>
+                                <string>innerType</string>
+                                <string>SentenceSentiment</string>
+                              </entry>
+                              <entry>
+                                <string>outerType</string>
+                                <string>SentenceSet</string>
+                              </entry>
+                            </localMap>
+                          </gate.util.persistence.MapPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.groovy.ScriptPR</resourceType>
+                    <resourceName>SentimentAveraging</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>scriptURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>creole://uk.ac.gate.plugins;sentiment;1.0/resources/groovy/DocumentSentimentAverage.groovy</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </strategiesList>
+            <prList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[5]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[6]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[7]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[8]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[9]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[10]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[11]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[12]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[13]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[14]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[15]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[16]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[17]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[18]/pr"/>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </prList>
+            <resourceType>gate.creole.ConditionalSerialAnalyserController</resourceType>
+            <resourceName>English Sentiment Analysis</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>gate.gui.icon</string>
+                  <string>application</string>
+                </entry>
+              </localMap>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>tagASName</string>
+                  <string>Original markups</string>
+                </entry>
+                <entry>
+                  <string>copyAnnotations</string>
+                  <boolean>true</boolean>
+                </entry>
+                <entry>
+                  <string>inputASName</string>
+                  <string>Sentiment</string>
+                </entry>
+                <entry>
+                  <string>annotationTypes</string>
+                  <gate.util.persistence.CollectionPersistence>
+                    <localList>
+                      <string>Sentiment</string>
+                      <string>SentenceSentiment</string>
+                      <string>NounChunk</string>
+                      <string>CandidateTarget</string>
+                    </localList>
+                    <collectionType>java.util.ArrayList</collectionType>
+                  </gate.util.persistence.CollectionPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.creole.annotransfer.AnnotationSetTransfer</resourceType>
+            <resourceName>copy Sentiment Annotations to Default</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.Transducer</resourceType>
+            <resourceName>add timestamp</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/twitie/add-timestamps.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptParams</string>
+                  <gate.util.persistence.MapPersistence>
+                    <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                    <localMap/>
+                  </gate.util.persistence.MapPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.groovy.ScriptPR</resourceType>
+            <resourceName>hashtags-from-twitter</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/groovy/hashtagsFromTwitter.groovy</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.Transducer</resourceType>
+            <resourceName>hashtag-userid-to-token</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/twitie/lc-hashtags.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>2</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.ExtendedGazetteer</resourceType>
+            <resourceName>Extended Abuse Gazetteer</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>caseSensitive</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>configFileURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;abuse-gazetteer;0.2-SNAPSHOT/resources/english/lists.def</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+            <resourceName>abuse gazetteer</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>gazetteerFeatureSeparator</string>
+                  <string>\t</string>
+                </entry>
+                <entry>
+                  <string>listsURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;abuse-gazetteer;0.2-SNAPSHOT/resources/english/lists.def</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+                <entry>
+                  <string>caseSensitive</string>
+                  <boolean>false</boolean>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+            <resourceName>Russian Abuse Gazetteer</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>gazetteerFeatureSeparator</string>
+                  <string>\t</string>
+                </entry>
+                <entry>
+                  <string>listsURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;abuse-gazetteer;0.2-SNAPSHOT/resources/russian/lists.def</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.ANNIETransducer</resourceType>
+            <resourceName>abuse grammar</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/abuse-grammar/main.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
+            <strategiesList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>get-author grammar</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/metadata/get_author.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>author_id</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>Author</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-author-feature-gaz-id</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-id-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>author</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>Author</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-author-feature-gaz</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>retweeted_author</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>RetweetedAuthor</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-retweet-author-feature-gaz-id</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-id-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>retweeted_author</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>RetweetedAuthor</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-retweet-author-feature-gaz</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>in_reply_to_user_id_str</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>ReplyTo</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-replied-author-feature-gaz-id</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-id-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>wordAnnotationType</string>
+                          <string>Tweet</string>
+                        </entry>
+                        <entry>
+                          <string>textFeature</string>
+                          <string>in_reply_to_screen_name</string>
+                        </entry>
+                        <entry>
+                          <string>processingMode</string>
+                          <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>AddNewAnnotation</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                        </entry>
+                        <entry>
+                          <string>outputAnnotationType</string>
+                          <string>ReplyTo</string>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+                    <resourceName>mp-replied-to-author-feature-gaz</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                        <entry>
+                          <string>configFileURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/author-lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>scriptParams</string>
+                          <gate.util.persistence.MapPersistence>
+                            <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                            <localMap/>
+                          </gate.util.persistence.MapPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.groovy.ScriptPR</resourceType>
+                    <resourceName>de-duplicate-authors-retweeted</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>scriptURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/groovy/deduplicate-politicians.groovy</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>2</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>MP simple gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <string>\t</string>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics/mp_lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.Transducer</resourceType>
+                    <resourceName>make_everyone_a_politician</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/politics-2/make_everyone_a_politician.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
+                    <resourceName>topics gazetteer</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>gazetteerFeatureSeparator</string>
+                          <string>\t</string>
+                        </entry>
+                        <entry>
+                          <string>listsURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/topics-gazetteer/lists.def</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                        <entry>
+                          <string>caseSensitive</string>
+                          <boolean>false</boolean>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.ANNIETransducer</resourceType>
+                    <resourceName>topic grammar</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/topics/main.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>scriptParams</string>
+                          <gate.util.persistence.MapPersistence>
+                            <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                            <localMap/>
+                          </gate.util.persistence.MapPersistence>
+                        </entry>
+                      </localMap>
+                    </runtimeParams>
+                    <resourceType>gate.groovy.ScriptPR</resourceType>
+                    <resourceName>de-duplicate topics</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>scriptURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/groovy/deduplicate-topics.groovy</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+                <gate.util.persistence.AnalyserRunningStrategyPersistence>
+                  <runMode>1</runMode>
+                  <featureName></featureName>
+                  <featureValue></featureValue>
+                  <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+                    <runtimeParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </runtimeParams>
+                    <resourceType>gate.creole.Transducer</resourceType>
+                    <resourceName>topic-string</resourceName>
+                    <initParams class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap>
+                        <entry>
+                          <string>grammarURL</string>
+                          <gate.util.persistence.PersistenceManager-RRPersistence>
+                            <uriString>$relpath$application-resources/mimir/topic-string.jape</uriString>
+                          </gate.util.persistence.PersistenceManager-RRPersistence>
+                        </entry>
+                      </localMap>
+                    </initParams>
+                    <features class="gate.util.persistence.MapPersistence">
+                      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                      <localMap/>
+                    </features>
+                  </pr>
+                </gate.util.persistence.AnalyserRunningStrategyPersistence>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </strategiesList>
+            <prList class="gate.util.persistence.CollectionPersistence">
+              <localList>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[5]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[6]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[7]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[8]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[9]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[10]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[11]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[12]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[13]/pr"/>
+                <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[14]/pr"/>
+              </localList>
+              <collectionType>java.util.ArrayList</collectionType>
+            </prList>
+            <resourceType>gate.creole.ConditionalSerialAnalyserController</resourceType>
+            <resourceName>politics</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.Transducer</resourceType>
+            <resourceName>author</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/jape/author-phases.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>wordAnnotationType</string>
+                  <string>Author</string>
+                </entry>
+                <entry>
+                  <string>matchAtEndOnly</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>textFeature</string>
+                  <string>splitHandle</string>
+                </entry>
+                <entry>
+                  <string>matchAtStartOnly</string>
+                  <boolean>false</boolean>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+            <resourceName>Author Gender Gaz Handles</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>caseSensitive</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>configFileURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/names/lists.def</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>wordAnnotationType</string>
+                  <string>Author</string>
+                </entry>
+                <entry>
+                  <string>matchAtEndOnly</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>textFeature</string>
+                  <string>splitName</string>
+                </entry>
+                <entry>
+                  <string>matchAtStartOnly</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>processingMode</string>
+                  <com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>OverwriteFeatures</com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteerProcessingMode>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>com.jpetrak.gate.stringannotation.extendedgazetteer.FeatureGazetteer</resourceType>
+            <resourceName>Author Gender Gaz Names</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>caseSensitive</string>
+                  <boolean>false</boolean>
+                </entry>
+                <entry>
+                  <string>configFileURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/names/lists.def</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName>to-index</featureName>
+          <featureValue>true</featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.Transducer</resourceType>
+            <resourceName>URL Cleanup</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/grammar/cleanup.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.ANNIETransducer</resourceType>
+            <resourceName>mimir-shims</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/mimir/mimir-shims.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>serviceUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>https://elg-news-topic-classifier.internal.gate.ac.uk/process</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.elg.client.ElgClientPR</resourceType>
+            <resourceName>News Topic Framing</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.ANNIETransducer</resourceType>
+            <resourceName>Elasticsearch Shims</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>$relpath$application-resources/elasticsearch/main.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>tagASName</string>
+                  <string>Original markups</string>
+                </entry>
+                <entry>
+                  <string>annotationTypes</string>
+                  <gate.util.persistence.CollectionPersistence>
+                    <localList>
+                      <string>SlurLookup=OffensiveSlurLookup</string>
+                      <string>OffensiveLookup=OffensiveSlurLookup</string>
+                    </localList>
+                    <collectionType>java.util.ArrayList</collectionType>
+                  </gate.util.persistence.CollectionPersistence>
+                </entry>
+                <entry>
+                  <string>copyAnnotations</string>
+                  <boolean>true</boolean>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.creole.annotransfer.AnnotationSetTransfer</resourceType>
+            <resourceName>Merge Some Lookups</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.ANNIETransducer</resourceType>
+            <resourceName>selectTokens</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;termraider;9.0-SNAPSHOT/resources/jape/select-tokens-en.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </runtimeParams>
+            <resourceType>gate.creole.ANNIETransducer</resourceType>
+            <resourceName>multiwordJape</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>grammarURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;termraider;9.0-SNAPSHOT/resources/jape/multiword-main-en.jape</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptParams</string>
+                  <gate.util.persistence.MapPersistence>
+                    <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                    <localMap/>
+                  </gate.util.persistence.MapPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.groovy.ScriptPR</resourceType>
+            <resourceName>deduplicateMW</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptURL</string>
+                  <gate.util.persistence.PersistenceManager-RRPersistence>
+                    <uriString>creole://uk.ac.gate.plugins;termraider;9.0-SNAPSHOT/resources/groovy/DeduplicateMultiWord.groovy</uriString>
+                  </gate.util.persistence.PersistenceManager-RRPersistence>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+      </localList>
+      <collectionType>java.util.ArrayList</collectionType>
+    </strategiesList>
+    <prList class="gate.util.persistence.CollectionPersistence">
+      <localList>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+        <gate.util.persistence.ConditionalSerialAnalyserControllerPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+        <gate.util.persistence.ConditionalSerialAnalyserControllerPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[5]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[6]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[7]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[8]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[9]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[10]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[11]/pr"/>
+        <gate.util.persistence.ConditionalSerialAnalyserControllerPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[12]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[13]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[14]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[15]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[16]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[17]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[18]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[19]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[20]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[21]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[22]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[23]/pr"/>
+      </localList>
+      <collectionType>java.util.ArrayList</collectionType>
+    </prList>
+    <resourceType>gate.creole.ConditionalSerialAnalyserController</resourceType>
+    <resourceName>GATE-HATE-journalist</resourceName>
+    <initParams class="gate.util.persistence.MapPersistence">
+      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+      <localMap/>
+    </initParams>
+    <features class="gate.util.persistence.MapPersistence">
+      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+      <localMap>
+        <entry>
+          <string>@author</string>
+          <string>GATE team</string>
+        </entry>
+        <entry>
+          <string>%@outputdir</string>
+          <string>$gatehome$../gate-extras/arcomem/applications/appdoc/</string>
+        </entry>
+        <entry>
+          <string>%@commentFormat</string>
+          <string>html</string>
+        </entry>
+        <entry>
+          <string>%@templatedir</string>
+          <string>$gatehome$../gate-extras/plugins/AppDoc/templates/html_default/</string>
+        </entry>
+        <entry>
+          <string>@comment</string>
+          <string>GATE HATE for POLITICS</string>
+        </entry>
+      </localMap>
+    </features>
+  </application>
+</gate.util.persistence.GateApplication>

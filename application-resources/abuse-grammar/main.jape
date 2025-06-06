@@ -1,0 +1,20 @@
+MultiPhase:	TestTheGrammars
+Phases: 
+
+pre
+hatred-discussion
+veto
+veto-by-language
+tidy
+findquotes
+abuse
+abuse-phrases
+abuse-phrases-others
+last-resort
+abuse-term-only
+you-phrases
+count-abuse
+normalise-abuse-string
+post
+cleanup
+cleanup-final

@@ -1,0 +1,38 @@
+Phase: GetAuthor
+Input: Tweet
+Options: control = appelt
+
+/* get the value of the author from the metadata */
+
+Rule:GetAuthor
+Priority: 1000
+( 
+ {Tweet}
+ ):tag
+ -->
+{
+AnnotationSet TweetAS = bindings.get("tag");
+Annotation TweetAnn = TweetAS.iterator().next();
+  FeatureMap features = Factory.newFeatureMap();
+
+String author = (String)((Map<?,?>)TweetAnn.getFeatures().get("user")).get("screen_name");
+String author_id = (String)((Map<?,?>)TweetAnn.getFeatures().get("user")).get("id_str");
+
+TweetAnn.getFeatures().put("author", author);
+TweetAnn.getFeatures().put("author_id", author_id);
+
+// if this is a retweet, record the author of the original in a way that feature gaz can use
+Map<?,?> retweet = (Map<?,?>)TweetAnn.getFeatures().get("retweeted_status");
+if(retweet != null) {
+  String retweeted_author = (String)((Map<?,?>)retweet.get("user")).get("screen_name");
+  TweetAnn.getFeatures().put("retweeted_author", retweeted_author);
+
+  String retweeted_author_id = (String)((Map<?,?>)retweet.get("user")).get("id_str");
+  TweetAnn.getFeatures().put("retweeted_author_id", retweeted_author_id);
+}
+
+}
+
+
+
+

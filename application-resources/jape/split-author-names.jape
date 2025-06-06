@@ -1,0 +1,41 @@
+Imports: {
+	import gate.Utils;
+	import org.apache.commons.lang.StringUtils;
+}
+
+Phase: SplitAuthorNames
+Input: Author RetweetedAuthor
+Options: control = all
+
+Rule: SplitNames
+({Author} | {RetweetedAuthor}):author
+-->
+
+{
+	AnnotationSet authAnnotations = bindings.get("author");
+	for (Annotation authAnnotation : authAnnotations) {
+		if(authAnnotation.getFeatures().get("name")!=null){
+			String name = authAnnotation.getFeatures().get("name").toString();
+			name = name.replaceAll("[^A-Za-z]", " ");
+			String[] namebits = name.split("(?<!(^|[A-Z]))(?=[A-Z])|(?<!^)(?=[A-Z][a-z])");
+			String joinedName = "";
+			for(String bit : namebits){
+				joinedName = joinedName + ">>" + bit.trim() + "<<";
+			}
+			joinedName = joinedName.replace(" ","<<>>");
+			authAnnotation.getFeatures().put("splitName", joinedName);
+		}
+
+		if(authAnnotation.getFeatures().get("twitter_handle")!=null){
+			String handle = authAnnotation.getFeatures().get("twitter_handle").toString();
+			handle = handle.replaceAll("[^A-Za-z]", " ");
+			String[] handlebits = handle.split("(?<!(^|[A-Z]))(?=[A-Z])|(?<!^)(?=[A-Z][a-z])");
+			String joinedHandle = "";
+			for(String bit : handlebits){
+				joinedHandle = joinedHandle + ">>" + bit.trim() + "<<";
+			}
+			joinedHandle = joinedHandle.replace(" ","<<>>");
+			authAnnotation.getFeatures().put("splitHandle", joinedHandle);
+		}
+	}
+}

@@ -1,0 +1,43 @@
+Imports: {
+    import static gate.Utils.*;
+}
+Phase:  LastTokenHashtag
+Input: Lookup
+Options: control = brill
+
+Rule: LastTokenHashtag
+Priority: 10
+(
+ {Lookup.majorType==voteIntent}
+):hashtag
+--> {
+    Annotation hashtag = bindings.get("hashtag").iterator().next(); // Expect only one.
+
+    AnnotationSet tweets = getCoveringAnnotations(inputAS, hashtag, "Tweet");
+    Long tweetEnd = end(doc);
+    if(tweets.size() > 0) {
+        tweetEnd = end(tweets);
+    }
+    AnnotationSet afterHashtag = inputAS.getContained(end(hashtag), tweetEnd);
+    AnnotationSet tokensAfterHashtag = afterHashtag.get("Token");
+    AnnotationSet hashtagsAfterHashtag = afterHashtag.get("Hashtag");
+    AnnotationSet urlsAfterHashtag = afterHashtag.get("URL");
+
+    boolean hasTokensAfter = false;
+    for (Annotation token : tokensAfterHashtag) {
+
+        // Don't count any tokens that are within a hashtag or a URL.
+        if (getCoveringAnnotations(hashtagsAfterHashtag, token).isEmpty() &&
+            getCoveringAnnotations(urlsAfterHashtag, token).isEmpty()) {
+            hasTokensAfter = true;
+            break;
+        }
+    }
+
+    if (!hasTokensAfter) {
+        doc.getFeatures().put("partyHighConfidence", hashtag.getFeatures().get("minorType").toString());
+    }
+}
+
+
+

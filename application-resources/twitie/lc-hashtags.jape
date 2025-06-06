@@ -1,0 +1,34 @@
+Phase: LCHashtags
+Input: Hashtag Token UserID
+Options: control = all
+
+Rule: Hash
+({Hashtag, Token}):hash
+-->
+:hash {
+  Annotation ht = gate.Utils.getOnlyAnn(hashAnnots.get("Hashtag"));
+  Annotation tok = gate.Utils.getOnlyAnn(hashAnnots.get("Token"));
+  String str = (String)ht.getFeatures().get("string");
+  if(str != null) {
+    str = str.toUpperCase(java.util.Locale.ENGLISH).toLowerCase(java.util.Locale.ENGLISH);
+    ht.getFeatures().put("string", str);
+    tok.getFeatures().put("hashtag_string", str);
+  }
+}
+
+
+Rule: User
+({UserID}):hash
+-->
+:hash {
+  Annotation uid = gate.Utils.getOnlyAnn(hashAnnots.get("UserID"));
+  AnnotationSet tokens = gate.Utils.getCoveringAnnotations(inputAS.get("Token"), uid);
+
+  if (tokens.size() > 0) {
+    Annotation tok = tokens.iterator().next();
+    String str = (String)uid.getFeatures().get("string");
+    if(str != null) {
+      tok.getFeatures().put("user_id", str);
+    }
+  }
+}

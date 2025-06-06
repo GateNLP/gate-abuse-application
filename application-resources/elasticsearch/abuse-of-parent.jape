@@ -1,0 +1,54 @@
+/**
+ * We've been essentially doing this via a runtime mapping inside the
+ * elasticseach index, which works but is horribly slow, so let's just
+ * do it as part of the app.
+ **/
+
+Imports: {
+	import static gate.Utils.*;
+}
+
+Phase: AbuseOfParentTweet
+Input: Tweet
+Options: control = appelt
+
+Rule: UnnestAbuse
+(
+ {Tweet}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+ 
+  // get all the Abuse annotations in this tweet
+  AnnotationSet abuseAnnotations = getContainedAnnotations(inputAS, theTweet, "Abuse");
+  
+  // trim this down to just those that have a type
+  Set<String> mustHaveFeatures = new HashSet<String>();
+  mustHaveFeatures.add("type");
+  abuseAnnotations = abuseAnnotations.get("Abuse", mustHaveFeatures);
+  
+  // reduce this set further to just those who are abusing the addressee
+  AnnotationSet abuseOfAddressee = abuseAnnotations.get("Abuse", featureMap("target","addressee"));
+  
+  // if this gets us no annotations then return
+  // TODO should we add "none" or similar rather than leaving the feature blank
+  if (abuseOfAddressee.size() == 0) return;
+  
+  // TODO work down through strengths; if more than one at the highest strength
+  // we find then pick the first one within the text
+  for (String strength : new String[]{"strongest", "strong", "medium", "mild"}) {
+  	AnnotationSet subset = abuseOfAddressee.get("Abuse", featureMap("strength",strength));
+  	
+  	if (subset.size() > 0) {
+  		Annotation a = inDocumentOrder(subset).get(0);
+  		doc.getFeatures().put("parent_abuse_type", a.getFeatures().get("type"));
+  	}
+  }
+    
+  // TODO if none have a strength then pick the first (could also work through
+  // types here if we knew which was worse
+  Annotation a = inDocumentOrder(abuseOfAddressee).get(0);  
+  doc.getFeatures().put("parent_abuse_type", a.getFeatures().get("type"));
+}
+

@@ -1,0 +1,109 @@
+// Add the string covered by a Topic as a feature on the annotation, to make
+// them prospectable (you can search for {Topic} OVER "string" but if you want
+// the different strings to show up as terms in prospector they have to be
+// features on the annotation)
+
+Phase: TopicString
+Input: Emotion Topic Abuse OffensiveLookup HatredDebateLookup Token
+Options: control = all
+
+Rule: AddTopicString
+({Topic, Token}):top
+-->
+:top {
+  String theme = null;
+  String subtheme = null;
+  String root = null;
+  for (Annotation tag : topAnnots) {
+    if(!tag.getType().equals("Token")) {
+      tag.getFeatures().put("string", gate.Utils.stringFor(doc, tag).toLowerCase());
+      theme = (String)tag.getFeatures().get("theme");
+      subtheme = (String)tag.getFeatures().get("subtheme");
+      root = (String)tag.getFeatures().get("root");
+      break;
+    }
+  }
+  for(Annotation tag : topAnnots) {
+    if(tag.getType().equals("Token")) {
+      if(theme != null) {
+        tag.getFeatures().put("topic_theme", theme);
+      }
+      if(subtheme != null) {
+        tag.getFeatures().put("topic_subtheme", subtheme);
+        tag.getFeatures().put("topic_description", root + " (" + subtheme + ")");
+      } else {
+        tag.getFeatures().put("topic_description", root);
+      }
+      break;
+    }
+  }
+}
+
+Rule: AddEmotionString
+({Emotion, Token}):top
+-->
+:top {
+  String type = null;
+  String string = null;
+  for (Annotation tag : topAnnots) {
+    if(!tag.getType().equals("Token")) {
+      type = (String)tag.getFeatures().get("type");
+      string = gate.Utils.cleanStringFor(doc, tag).toLowerCase();
+      break;
+    }
+  }
+  for(Annotation tag : topAnnots) {
+    if(tag.getType().equals("Token")) {
+      if(type != null) {
+        tag.getFeatures().put("emotion_type", type);
+      }
+      if(string != null) {
+        tag.getFeatures().put("emotion_string", string);
+      }
+      break;
+    }
+  }
+}
+
+Rule: AddAbuseString
+({Abuse, Token}):top
+-->
+:top {
+  String string = null;
+  for (Annotation tag : topAnnots) {
+    if(!tag.getType().equals("Token")) {
+      string = gate.Utils.cleanStringFor(doc, tag).toLowerCase();
+      break;
+    }
+  }
+  for(Annotation tag : topAnnots) {
+    if(tag.getType().equals("Token")) {
+      if(string != null) {
+        tag.getFeatures().put("abuse_string", string);
+      }
+      break;
+    }
+  }
+}
+
+Rule: AddOffensiveString
+({OffensiveLookup, Token}):top
+-->
+:top {
+  String string = null;
+  for (Annotation tag : topAnnots) {
+    if(!tag.getType().equals("Token")) {
+      string = gate.Utils.cleanStringFor(doc, tag).toLowerCase();
+      break;
+    }
+  }
+  for(Annotation tag : topAnnots) {
+    if(tag.getType().equals("Token")) {
+      if(string != null) {
+        tag.getFeatures().put("offensive_string", string);
+      }
+      break;
+    }
+  }
+}
+

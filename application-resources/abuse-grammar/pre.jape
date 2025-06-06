@@ -1,0 +1,156 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Pre
+Input: Token SlurLookup SensitiveLookup OffensiveLookup Politician Person UserMention
+Options: control = all
+
+
+//Third parties.
+Macro: NEITHER_YOU_NOR_ME
+({Token.string == "Him"}|  
+{Token.string == "Her"}|  
+{Token.string == "Them"}| 
+{Token.string == "She"}|  
+{Token.string == "He"}|  
+{Token.string == "They"}| 
+{Token.string == "him"}|  
+{Token.string == "her"}|  
+{Token.string == "them"}|  
+{Token.string == "she"}|  
+{Token.string == "he"}|  
+{Token.string == "they"}|
+{Token.string == "HIM"}|  
+{Token.string == "HER"}|  
+{Token.string == "THEM"}| 
+{Token.string == "SHE"}|  
+{Token.string == "HE"}|  
+{Token.string == "THEY"}|  
+{Token.string == "THESE"}|  
+{Token.string == "THOSE"}|  
+{Token.string == "These"}|  
+{Token.string == "Those"}|  
+{Token.string == "these"}|  
+{Token.string == "those"}|  
+{Token.string == "THAT"}|  
+{Token.string == "That"}|  
+{Token.string == "that"}
+)
+
+//You.
+Macro: YOU
+({Token.string == "You"}|  
+{Token.string == "you"}|  
+{Token.string == "YOU"}|  
+{Token.string == "Your"}|  
+{Token.string == "your"}|  
+{Token.string == "YOUR"}|  
+{Token.string == "You're"}|  
+{Token.string == "you're"}| 
+{Token.string == "YOU'RE"}| 
+{Token.string == "U"}|  
+{Token.string == "u"}|
+{Token.string == "Ur"}|  
+{Token.string == "ur"}|  
+{Token.string == "UR"}
+)
+
+//You.
+Macro: ME
+({Token.string == "I"}| 
+{Token.string == "i"}| 
+{Token.string == "i'm"}| 
+{Token.string == "I'M"}| 
+{Token.string == "I'm"}| 
+{Token.string == "me"}| 
+{Token.string == "Me"}| 
+{Token.string == "ME"}
+)
+
+//A Token that isn't a pronoun.
+Macro: NOT_ANYONE
+(
+{
+Token.string != "Him",
+Token.string != "Her",
+Token.string != "Them",
+Token.string != "She",
+Token.string != "He",
+Token.string != "They",
+Token.string != "him",
+Token.string != "her",
+Token.string != "them",
+Token.string != "she",
+Token.string != "he",
+Token.string != "they",
+Token.string != "HIM",
+Token.string != "HER",
+Token.string != "THEM", 
+Token.string != "SHE",
+Token.string != "HE",
+Token.string != "THEY",
+Token.string != "THESE",
+Token.string != "THOSE", 
+Token.string != "These",
+Token.string != "Those",
+Token.string != "these",
+Token.string != "those",
+Token.string != "THAT",
+Token.string != "That",
+Token.string != "that",
+Token.string != "You",
+Token.string != "you",
+Token.string != "YOU",
+Token.string != "Your",
+Token.string != "your",
+Token.string != "YOUR",
+Token.string != "You're",
+Token.string != "you're",
+Token.string != "YOU'RE",
+Token.string != "U",
+Token.string != "u",
+Token.string != "U",
+Token.string != "u",
+Token.string != "Ur",
+Token.string != "ur",
+Token.string != "UR",
+Token.string != "I",
+Token.string != "i",
+Token.string != "I'm",
+Token.string != "i'm",
+Token.string != "I'M",
+Token.string != "me",
+Token.string != "Me",
+Token.string != "ME",
+!Person,
+!UserMention,
+!Politician,
+!Split}
+)
+
+//I need to know what's before and after the hyphen in the token
+//to be able to find gay-hating
+Rule: Gay-Hating
+Priority: 700
+
+(
+ ({Token.string=~"[a-zA-Z]{2,10}-[a-zA-Z]{2,10}"}
+  )):tag
+--> 
+:tag{  
+  Annotation theInstance = tagAnnots.iterator().next();  
+  String[] split = theInstance.getFeatures().get("string").toString().split("-");
+  theInstance.getFeatures().put("beforeHyphen", split[0]);
+  theInstance.getFeatures().put("afterHyphen", split[1]);
+}
+
+
+
+
+
+
+

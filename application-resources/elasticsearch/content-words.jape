@@ -1,0 +1,10 @@
+Phase: ContentWords
+Input: Token
+Options: control = appelt
+
+Rule: UKtoRU
+(
+ {Token.category ==~ "(NN|VB|JJ).*"}
+):token
+-->
+:token.ContentWord = {}

@@ -1,0 +1,17 @@
+parliament	head=parliament
+parliamentary	head=parliament
+sovereignty	head=sovereign
+sovereign 	head=sovereign
+bureaucrat	head=bureaucrat
+eurocrat	head=eurocrat
+bureaucrats	head=bureaucrat
+eurocrats	head=eurocrat
+election	head=democracy
+unelected	modifier=pre
+representatives	head=democracy
+democracy	head=democracy
+democratic	head=democracy
+vote	head=democracy
+votes	head=democracy
+voters	head=democracy
+voted	head=democracy

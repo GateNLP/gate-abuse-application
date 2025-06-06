@@ -1,0 +1,98 @@
+Imports: {
+	import java.time.*;
+	import java.time.format.*;
+}
+Phase: Malta
+Input: Token
+Options: control = once
+
+Rule: MangleMaltaData
+(
+ {Token}
+):token
+-->
+{
+	FeatureMap docFeatures = doc.getFeatures();
+	docFeatures.put("tweet_kind","original");
+	
+	String date = (String)docFeatures.get("date");
+	
+	if (date != null && date.matches("[0-9]{2}\\.[0-9]{2}\\.[0-9]{2}")) {
+		date = date.substring(0,6)+"20"+date.substring(6);
+	}
+	
+    if (date != null && !date.matches("[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}")) {
+    	date = "01.01.1970";	
+	}
+
+   	// Look at the date field and see if it's dd.mm.yyyy and if so parse it
+   	DateTimeFormatter TWITTER_DATE_FORMAT = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss Z yyyy").withZone(ZoneId.of("Z")).withLocale(Locale.ENGLISH);
+    
+    DateTimeFormatter simple = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss Z").withZone(ZoneId.of("Z")).withLocale(Locale.ENGLISH);
+    
+    date = TWITTER_DATE_FORMAT.format(simple.parse(date+" 12:00:00 +0000"));
+	
+	FeatureMap tweetFeatures = Factory.newFeatureMap();
+	tweetFeatures.put("created_at", date);
+	tweetFeatures.put("id_str", docFeatures.get("id_str"));
+	tweetFeatures.put("platform", "other");
+	tweetFeatures.put("lang","en");
+
+	
+	Map user = new HashMap();
+	user.put("created_at", "Thu Apr 06 15:24:15 +0000 2017");
+	
+	String username = (String)docFeatures.get("username");
+	
+	if (username == null || username.trim().equals("")) 
+		username = "UNKNOWN_USER";
+		
+	// use the username
+	user.put("name",username);
+	user.put("screen_name", username);
+	user.put("id_str",Math.abs(username.hashCode()));
+	
+	tweetFeatures.put("user",user);
+	
+	gate.Utils.addAnn(outputAS,outputAS,"Tweet",tweetFeatures);
+	
+	
+	List<Map<String, Object>> retweets = new ArrayList<Map<String, Object>>();
+
+    // add the 0 weight original creation time to the start of the list (this seems
+    // silly but we use it in a lot of the aggregations to make counting easier)
+    Map<String, Object> data = new LinkedHashMap<String, Object>();
+    data.put("retweeted_at", date);
+    data.put("weight", 0L);
+    retweets.add(data);
+    
+    docFeatures.put("retweet",retweets);
+    
+    
+    
+    AnnotationSet abusive = inputAS.get("Abuse");
+    for (Annotation abuse : abusive) {
+    	abuse.getFeatures().put("target",doc.getFeatures().get("related_to"));
+    }
+    
+    
+    // Turn the INDICATORS field into a sensible array of numbers, which can be
+    // used in the UI to index into a list of labels for the different indicators.
+    // that means we don't need complex labels here and can tweak the text after
+    // indexing the data. We also store the total number of indicators so we
+    // can sort on that value
+    
+       
+    String encoded = (String)doc.getFeatures().get("INDICATORS");
+    
+    List<Integer> indicators = new ArrayList<Integer>();
+    
+    if (encoded != null) {
+    	for (int i = 0 ; i < encoded.length() ; ++i) {
+    		if (encoded.charAt(i) == '1') indicators.add(i);
+    	}
+    }
+    
+    doc.getFeatures().put("indicators",indicators);
+    doc.getFeatures().put("num_indicators",indicators.size());
+}

@@ -1,0 +1,18 @@
+Phase: AuthorRetweetedAuthorAnnsToFirstToken
+Input: Author RetweetedAuthor ReplyTo
+Options: control = all
+
+Rule: GetAuthor
+( {Author} | {RetweetedAuthor} | {ReplyTo}):tag
+-->
+:tag {
+  Annotation bigAnnot = gate.Utils.getOnlyAnn(tagAnnots);
+  AnnotationSet firstTokens = gate.Utils.getContainedAnnotations(inputAS, bigAnnot, "Token")
+                                        .get(gate.Utils.start(bigAnnot));
+  if(!firstTokens.isEmpty()) {
+    FeatureMap cloneFeatures = gate.Utils.toFeatureMap(bigAnnot.getFeatures());
+    cloneFeatures.put("minorType",cloneFeatures.get("politicianType"));
+    inputAS.remove(bigAnnot);
+    gate.Utils.addAnn(outputAS, firstTokens, bigAnnot.getType(), cloneFeatures);
+  }
+}

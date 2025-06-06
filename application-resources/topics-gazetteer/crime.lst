@@ -1,0 +1,30 @@
+crime	modifier=pre
+crimes	head=crime
+death penalty
+prison	modifer=pre
+prisons	head=prison
+drug trade	head=drugs
+drugs trade	head=drugs
+prison sentence	head=prison
+prison sentences	head=prison
+drugs 	head=drugs
+drugs possession	head=drugs
+possession of drugs	head=drugs
+possession of illegal drugs	head=drugs
+prostitution
+burglary	head=burglary
+burglaries	head=burglary
+police	head=police
+police force	head=police
+policemen	head=police
+prisoner	head=prison
+prisoners	head=prison
+criminal gangs	head=criminal
+policing	head=police
+crime and policing	head=crime
+trafficking
+piracy
+firearms
+drug dealing	head=drugs
+criminal justice
+hate crime	head=hate crime

@@ -1,0 +1,22 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: NormaliseAbuseString
+Input: Abuse
+Options: control = all
+
+
+
+Rule: NormaliseAbuse
+({Abuse}):tag
+-->
+:tag {
+  for(Annotation tag : tagAnnots) {
+    tag.getFeatures().put("normalised_string", gate.Utils.cleanStringFor(doc, tag).toLowerCase());
+  }
+}
+

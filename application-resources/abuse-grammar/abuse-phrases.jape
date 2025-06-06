@@ -1,0 +1,190 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: AbusePhrases
+Input: Token AbuseTerm Split UserMention Person Politician UserMention SlurLookup SingleAbuseTerm YouAreLookup
+Options: control = appelt
+
+
+/* Note that I moved some of these to a new grammar AbusePhrasesOthers (see the explanation there)
+*/
+
+//IDIOT LIKE
+
+Rule: IdiotLikeYou
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ({Token.string == "like"}|{Token.string == "LIKE"}|{Token.string == "Like"})
+ (YOU)
+):abuse
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "high", rule = "abuse-phrases:IdiotLikeYou"},
+ :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotLikeYou"}
+
+
+Rule: IdiotLikeMe
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ({Token.string == "like"}|{Token.string == "LIKE"}|{Token.string == "Like"})
+ (ME)
+):abuse
+--> 
+ :tag.Abuse = {target = "author", confidence = "high", rule="abuse-phrases:IdiotLikeMe"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotLikeMe"}
+
+
+Rule: IdiotLikeThem
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ({Token.string == "like"}|{Token.string == "LIKE"}|{Token.string == "Like"})
+ (NEITHER_YOU_NOR_ME|{UserMention}|{Person}|{Politician})
+):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "high", rule="abuse-phrases:IdiotLikeThem"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotLikeThem"}
+
+
+
+//WHAT AN IDIOT YOU ARE
+
+Rule: IdiotYouAre
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ (YOU)
+ ({Token.string == "are"}|{Token.string == "ARE"}|{Token.string == "Are"})
+):abuse
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "high", rule = "abuse-phrases:IdiotYouAre"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotYouAre"}
+
+
+Rule: YouLookLikeAnIdiot
+Priority: 400
+(
+ {YouAreLookup}
+ ({Token.category == DT})?
+  ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+ -->
+ :tag.Abuse = {target = "addressee", confidence = "medium", rule = "abuse-phrases:YouLookLIkeAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:YouLookLikeAnIdiot"}
+ 
+
+
+Rule: YouLookLikeABitOfAnIdiot
+Priority: 200
+(
+ {YouAreLookup}
+ ({Token})[0,4]
+  ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+ -->
+ :tag.Abuse = {target = "addressee", confidence = "medium", rule = "abuse-phrases:YouLookLIkeABitOfAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:YouLookLikeABitOfAnIdiot"}
+ 
+
+
+
+Rule: IdiotIAm
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ (ME)
+ ({Token.string == "am"}|{Token.string == "AM"}|{Token.string == "Am"})
+):abuse
+--> 
+ :tag.Abuse = {target = "author", confidence = "high", rule="abuse-phrases:IdioIAm"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotIAm"}
+
+
+Rule: IdiotsTheyAre
+Priority: 650
+
+( 
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ (NEITHER_YOU_NOR_ME|{UserMention}|{Person}|{Politician})
+ ({Token.string == "are"}|{Token.string == "is"}|{Token.string == "ARE"}|{Token.string == "IS"}|{Token.string == "Are"}|{Token.string == "Is"})
+):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "high", rule = "abuse-phrases:IdiotsTheyAre"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IdiotsTheyAre"}
+
+
+
+
+//YOU ARE AN IDIOT
+
+Rule: YouFuckingIdiot
+Priority: 600
+
+( 
+ (YOU)
+ (NOT_ANYONE)[0,2]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "high", rule = "abuse-phrases:YouFuckingIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:YouFuckingIdiot"}
+
+
+
+Rule: YouAreClearlyACompleteIdiot
+Priority: 600
+
+( 
+ (YOU)
+ (NOT_ANYONE)[3,5]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "medium", rule = "abuse-phrases:YouAreClearlyACompleteIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:YouAreClearlyACompleteIdiot"}
+
+
+
+
+
+//I AM AN IDIOT
+
+
+Rule: IAmAnIdiot
+Priority: 600
+
+( 
+ (ME)
+ (NOT_ANYONE)[0,2]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "author", confidence = "high", rule = "abuse-phrases:IAmAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IAmAnIdiot"}
+
+
+
+Rule: IAmClearlyACompleteIdiot
+Priority: 600
+
+( 
+ (ME)
+ (NOT_ANYONE)[3,5]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "author", confidence = "medium", rule = "abuse-phrases:IAmClearlyACompleteIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases:IAmClearlyACompleteIdiot"}
+
+
+

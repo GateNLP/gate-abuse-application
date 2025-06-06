@@ -1,0 +1,17 @@
+// The Twitter tokeniser massages some token strings, so in order for documents
+// to look "right" in Mimir search results we need to index the original plain
+// string instead of the massaged one.  This grammar stores the plain string
+// value into the "mimir" feature of every token.
+
+Phase: MimirString
+Input: Token
+Options: control = all
+
+Rule: PlainString
+({Token}):tok
+-->
+:tok {
+  for(Annotation tok : tokAnnots) {
+    tok.getFeatures().put("mimir", gate.Utils.cleanStringFor(doc, tok));
+  }
+}

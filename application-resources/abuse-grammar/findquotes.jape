@@ -1,0 +1,88 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Pre
+Input: Token
+Options: control = first
+
+
+Rule: MarkQuote1
+Priority: 700
+
+(
+ ({Token.string=="\""})
+ ({Token})[1,100]
+ ({Token.string=="\""})
+):tag
+--> 
+ :tag.Quote = {debug="quote1"}
+
+
+Rule: MarkQuote2
+Priority: 700
+
+(
+ ({Token.string=="“"})
+ ({Token})[1,100]
+ ({Token.string=="”"})
+):tag
+--> 
+ :tag.Quote = {debug="quote2"}
+
+
+Rule: MarkQuote3
+Priority: 700
+
+(
+ ({Token.string=="‘"})
+ ({Token.string!="‘"})[1,100]
+ ({Token.string=="’"})
+):tag
+--> 
+ :tag.Quote = {debug="quote3"}
+
+
+Rule: MarkQuote4
+Priority: 700
+
+(
+ ({Token.string=="‘"})
+ ({Token.string=="‘"})
+ ({Token})[1,100]
+ ({Token.string=="’"})
+ ({Token.string=="’"})
+):tag
+--> 
+ :tag.Quote = {debug="quote4"}
+
+
+Rule: MarkQuote5
+Priority: 700
+
+(
+ ({Token.string=="'"})
+ ({Token.string!="'"})[1,100]
+ ({Token.string=="'"})
+):tag
+--> 
+ :tag.Quote = {debug="quote5"}
+
+
+Rule: MarkQuote6
+Priority: 700
+
+(
+ ({Token.string=="'"})
+ ({Token.string=="'"})
+ ({Token})[1,100]
+ ({Token.string=="'"})
+ ({Token.string=="'"})
+):tag
+--> 
+ :tag.Quote = {debug="quote6"}
+
+

@@ -1,0 +1,63 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Cleanup
+Input: AbuseTerm Veto HatredDiscussion TweetSegment Abuse NotAbuseLookup
+Options: control = all
+
+
+
+Rule: Tidy1
+Priority: 700
+
+( 
+ ({NotAbuseLookup})
+):tag
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+FeatureMap fm = lookup.getFeatures();
+fm.put("origin", "gazetteer");
+fm.put("rule", "Cleanup:Tidy1");
+gate.Utils.addAnn(outputAS, lookup, "NotAbuse", fm);
+}
+
+Rule: Tidy2
+Priority: 700
+
+( 
+ ({HatredDiscussion})
+):tag
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+FeatureMap fm = lookup.getFeatures();
+fm.put("origin", "hatred discussion jape");
+fm.put("rule", "Cleanup:Tidy2");
+gate.Utils.addAnn(outputAS, lookup, "NotAbuse", fm);
+}
+
+Rule: Tidy3
+Priority: 700
+
+( 
+ ({Veto})
+):tag
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+FeatureMap fm = lookup.getFeatures();
+fm.put("origin", "veto jape");
+fm.put("rule", "Cleanup:Tidy3");
+gate.Utils.addAnn(outputAS, lookup, "NotAbuse", fm);
+}
+
+
+

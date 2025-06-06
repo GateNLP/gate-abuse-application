@@ -1,0 +1,104 @@
+Imports: {
+  import gate.Utils;
+}
+/*
+ * add author_uri from Author annotation as a document feature
+ */
+
+
+Phase: AuthorToUri
+Input: Author
+Options: control = once
+
+Rule: AuthorToUri
+({Author}):tag
+-->
+
+{
+    AnnotationSet authorSet = (AnnotationSet) bindings.get("tag");
+    Annotation authorAnn = authorSet.iterator().next();
+    Object uri = authorAnn.getFeatures().get("uri");
+    if(uri == null) { // this Author was a candidate rather than an MP
+      uri = authorAnn.getFeatures().get("dbpedia");
+      if(uri == null || "UNKNOWN".equals(uri)) {
+        // candidate without a DBpedia URI, use the yournextmp one instead
+        uri = authorAnn.getFeatures().get("inst");
+      }
+    }
+    if(authorAnn.getFeatures().containsKey("politician_handle")){
+      doc.getFeatures().put("author_screen_name", authorAnn.getFeatures().get("politician_handle"));
+    }
+    if(uri != null) {
+      doc.getFeatures().put("author_uri", uri);
+    }
+}
+    
+/*
+ * same for retweets
+ */
+
+
+Phase: RetweetedAuthorToUri
+Input: RetweetedAuthor
+Options: control = once
+
+Rule: AuthorToUri
+({RetweetedAuthor}):tag
+-->
+
+{
+    AnnotationSet authorSet = (AnnotationSet) bindings.get("tag");
+    Annotation authorAnn = authorSet.iterator().next();
+    Object uri = authorAnn.getFeatures().get("uri");
+    if(uri == null) { // this Author was a candidate rather than an MP
+      uri = authorAnn.getFeatures().get("dbpedia");
+      if(uri == null || "UNKNOWN".equals(uri)) {
+        // candidate without a DBpedia URI, use the yournextmp one instead
+        uri = authorAnn.getFeatures().get("inst");
+      }
+    }
+    doc.getFeatures().put("retweet_of_screen_name", authorAnn.getFeatures().get("twitter_handle"));
+    doc.getFeatures().put("retweet_of_twitter_id", authorAnn.getFeatures().get("twitter_id"));
+    if(uri != null) {
+      doc.getFeatures().put("retweet_of_uri", uri);
+    }
+
+    // add retweeted status ID as a feature
+    // we know the original Tweet annotation will have a retweeted_status.id
+    doc.getFeatures().put("retweet_of_status_id", ((Map<?,?>)inputAS.get("Tweet").iterator().next().getFeatures().get("retweeted_status")).get("id_str"));
+}
+    
+
+Phase: ReplyToToUri
+Input: ReplyTo
+Options: control = once
+
+Rule: ReplyToToUri
+({ReplyTo}):tag
+-->
+
+{
+    AnnotationSet authorSet = (AnnotationSet) bindings.get("tag");
+    Annotation authorAnn = authorSet.iterator().next();
+    Object uri = authorAnn.getFeatures().get("uri");
+    if(uri == null) { // this Author was a candidate rather than an MP
+      uri = authorAnn.getFeatures().get("dbpedia");
+      if(uri == null || "UNKNOWN".equals(uri)) {
+        // candidate without a DBpedia URI, use the yournextmp one instead
+        uri = authorAnn.getFeatures().get("inst");
+      }
+    }
+    String inReplyTo = (String)authorAnn.getFeatures().get("twitter_handle");
+    String inReplyToId = (String)authorAnn.getFeatures().get("twitter_id");
+    
+    doc.getFeatures().put("in_reply_to_screen_name", inReplyTo);
+    doc.getFeatures().put("in_reply_to_user_id", inReplyToId);
+    doc.getFeatures().put("in_reply_to_uri", "https://twitter.com/" + inReplyTo);
+    doc.getFeatures().put("in_reply_to_status_id", inputAS.get("Tweet").iterator().next().getFeatures().get("in_reply_to_status_id_str"));
+}
+    
+
+
+
+
+

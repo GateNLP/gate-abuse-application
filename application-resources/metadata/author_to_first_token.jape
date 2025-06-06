@@ -1,0 +1,15 @@
+Phase: AuthorAndIdToFirstToken
+Input: Tweet Token
+Options: control = appelt
+
+Rule: GetAuthor
+(
+ {Tweet, Token}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots.get("Tweet"));
+  Annotation firstToken = gate.Utils.getOnlyAnn(twtAnnots.get("Token"));
+  firstToken.getFeatures().put("tweet_author", theTweet.getFeatures().get("author"));
+  firstToken.getFeatures().put("tweet_id", theTweet.getFeatures().get("id_str"));
+}

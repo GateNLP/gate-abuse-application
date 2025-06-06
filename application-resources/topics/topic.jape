@@ -1,0 +1,136 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Topic
+Input: TopicLookup Topic URL Address SensitiveLookup Token
+Options: control = all
+
+
+Rule: LookupTopic
+Priority: 500
+
+/*
+  Create a basic topic without any generated root words
+  */
+( 
+ {TopicLookup.majorType == topic}
+):tag
+-->
+{
+  Annotation tag = Utils.getOnlyAnn(bindings.get("tag"));
+
+  String theme = (String) tag.getFeatures().get("minorType");
+
+  String category = (String) tag.getFeatures().get("category");
+
+  // Look for Topic annotations that are of the same type of this one but bigger.
+  FeatureMap matchesType = Utils.featureMap("theme", theme);
+
+  AnnotationSet biggerTopics = Utils.getCoveringAnnotations(outputAS.get("Topic", matchesType), tag);
+
+
+  if (biggerTopics.isEmpty()) {
+    // Build the feature map for the new topic annotation7
+    FeatureMap features = Factory.newFeatureMap();
+
+    // Get the tokens contained by the topic annotation so we can list them as features.
+    List<Annotation> headTokens = Utils.inDocumentOrder(
+        Utils.getContainedAnnotations(inputAS, tag, "Token")
+      );
+
+
+    String root = "";
+    if(headTokens.size() > 0) {
+      StringBuilder rootBuilder = new StringBuilder();
+      Iterator<Annotation> iter = headTokens.iterator();
+      rootBuilder.append(iter.next().getFeatures().get("string"));
+      while(iter.hasNext()) {
+        rootBuilder.append(" ");
+        rootBuilder.append(iter.next().getFeatures().get("string"));
+      }
+      root = rootBuilder.toString();
+    }
+    //String root = headTokens.stream().map(a -> (String) a.getFeatures().get("string")).
+    //  collect(Collectors.joining(" "));
+
+    // Insist that all tokens must of the specified category if one is set in the gazetteer.
+    Boolean allowed = true;
+    if (category != null) {
+      for(Annotation a : headTokens) {
+        if(!category.equals(a.getFeatures().get("category"))) {
+          allowed = false;
+          break;
+        }
+      }
+      //allowed = headTokens.stream().allMatch(a -> a.getFeatures().get("category").equals(category));
+    }
+
+    if (allowed) {
+      // If there's a head topic, set that as the subtheme. If not use the list of roots.
+      if (tag.getFeatures().containsKey("head")) {
+        features.put("subtheme", tag.getFeatures().get("head"));
+      } else {
+        features.put("subtheme", root);
+      }
+      
+      features.put("root", root);
+      features.put("rule", "LookupTopic");
+      features.put("theme", theme);
+
+      // Create the annotation with the new features.
+      Utils.addAnn(outputAS, tag, "Topic", features);      
+    }
+  }
+}
+
+
+
+
+Rule: HatredDiscussion
+Priority: 1000
+
+( 
+ ({Token.string == "anti"}|
+  {Token.string == "anti-"}|
+  {Token.string == "Anti"}|
+  {Token.string == "Anti-"})
+ ({SensitiveLookup}):head
+):tag
+--> 
+ :tag.Topic = {head = :head.Token.string, majorType = "Topic", minorType = "hatred", subtype = "hatreddiscussion"}
+
+Rule: HatredDiscussion
+Priority: 1000
+
+( 
+ ({SensitiveLookup}):head
+ ({Token.string == "hating"}|
+  {Token.string == "-hating"}|
+  {Token.string == "Hating"}|
+  {Token.string == "-Hating"}|
+  {Token.string == "hatred"}|
+  {Token.string == "-hatred"}|
+  {Token.string == "Hatred"}|
+  {Token.string == "-Hatred"}|
+  {Token.string == "hater"}|
+  {Token.string == "-hater"}|
+  {Token.string == "Hater"}|
+  {Token.string == "-Hater"}|
+  {Token.string == "haters"}|
+  {Token.string == "-haters"}|
+  {Token.string == "Haters"}|
+  {Token.string == "-Haters"}|
+  {Token.string == "hate"}|
+  {Token.string == "-hate"}|
+  {Token.string == "Hate"}|
+  {Token.string == "-Hate"})
+):tag
+--> 
+ :tag.Topic = {head = :head.Token.string, subtheme = :head.Token.string, majorType = "Topic", minorType = "hatred", theme = "hatred", subtype = "hatreddiscussion"}
+
+
+

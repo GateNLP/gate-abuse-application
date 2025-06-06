@@ -1,0 +1,60 @@
+Phase: AuthorAndIdToFirstToken
+Input: Tweet
+Options: control = appelt
+
+Rule: GetAuthor
+(
+ {Tweet}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+  // this should be the most efficient way to find the first token in the tweet -
+  // find all the tokens inside the tweet, then take the first offset where
+  // there are any tokens and give me all the tokens that start there (should
+  // be exactly one).  This is likely more efficient than sorting the whole
+  // list of tokens into document order before extracting the first one, as
+  // AnnotationSet already has them indexed by start offset.
+  for(Annotation firstToken : gate.Utils.getContainedAnnotations(inputAS, theTweet, "Token")
+                                        .get(gate.Utils.start(theTweet))) {
+    firstToken.getFeatures().put("tweet_author_id", theTweet.getFeatures().get("author_id"));
+    firstToken.getFeatures().put("tweet_author", theTweet.getFeatures().get("author"));
+    firstToken.getFeatures().put("tweet_id", theTweet.getFeatures().get("id_str"));
+
+    // get the reply target for replies, but only when it's a politician
+    //because these features are only on the document if there was a ReplyTo annotation
+    //created by the extended gazetteer
+    Object inReplyToScreenName = doc.getFeatures().get("in_reply_to_screen_name");
+    Object inReplyToUserId = doc.getFeatures().get("in_reply_to_user_id");
+    if(inReplyToScreenName != null) {
+      firstToken.getFeatures().put("in_reply_to", inReplyToScreenName);
+      firstToken.getFeatures().put("in_reply_to_id", inReplyToUserId);
+    }
+
+    Object inReplyToStatusId = doc.getFeatures().get("in_reply_to_status_id");
+    if(inReplyToStatusId != null) {
+      firstToken.getFeatures().put("in_reply_to_status_id", inReplyToStatusId);
+    }
+
+    // get the screen name of the retweeted_status author, if there is one
+    Map<?,?> retweeted_status = (Map<?,?>)theTweet.getFeatures().get("retweeted_status");
+    if(retweeted_status != null) {
+      firstToken.getFeatures().put("retweet_of", ((Map)retweeted_status.get("user")).get("screen_name"));
+    }
+
+    // get the screen name of retweeted author, but only when it's a politician
+    Object retweetedScreenName = doc.getFeatures().get("retweet_of_screen_name");
+    if(retweetedScreenName != null) {
+      firstToken.getFeatures().put("retweeted_politician", retweetedScreenName);
+    }
+    Object retweetedTwitterID = doc.getFeatures().get("retweet_of_twitter_id");
+    if(retweetedTwitterID != null) {
+      firstToken.getFeatures().put("retweeted_politician_id", retweetedTwitterID);
+    }
+
+    Object retweetOfStatusId = doc.getFeatures().get("retweet_of_status_id");
+    if(retweetOfStatusId != null) {
+      firstToken.getFeatures().put("retweet_of_status_id", retweetOfStatusId);
+    }
+  }
+}

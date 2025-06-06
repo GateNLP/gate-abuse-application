@@ -1,0 +1,105 @@
+austerity	head=austerity
+austerity measure	head=austerity
+austerity measures	head=austerity
+bad debt	head=bad debt
+bad loan	head=bad debt
+bad loans	head=bad debt
+bank	modifier=pre
+budget	modifier=head
+deficit	modifier=head
+deficit reduction	head=deficit
+deficit reduction ceiling	head=deficit
+exchange rate volatility
+export	modifier=head
+finance
+foreign exchange
+import	modifier=head
+inflation rate
+nonperforming loans
+poverty rate
+bailout	modifier=head
+budget	modifier=pre
+budget cut	head=budget cuts
+budget cuts	head=budget cuts
+currency devaluation
+debt	modifier=head
+debt crisis
+economic crisis
+euro crisis	head=euro crisis
+European crisis	head=euro crisis
+European debt crisis	head=euro crisis
+financial crisis
+financial	modifier=pre
+market crash	head=market crash
+market crisis	head=market crash
+market failure	head=market crash
+market failures	head=market crash
+repayment	modifier=pre
+valuation
+bonuses	modifier=head
+fiscal rules
+industry bonuses
+economic growth
+collaborative economy
+creative economy
+digital economy
+investment	modifier=head
+spending	modifier=head
+spending cuts
+sharing economy
+price control	head=price control
+price controls	head=price control
+cost of living	subtheme=cost of living
+debts	modifier=head
+foreign investment
+oil prices
+prices	modifier=head
+poverty	modifier=head
+poverty index
+subsidy	modifier=head
+subsidies	modifier=head
+pension	modifier=head
+pensions	modifier=head
+recession	head=recession
+recessions	head=recession
+borrowing
+living standard	head=living standards
+living standards	head=living standards
+prosperity
+finances
+economic recovery
+economic downturn
+economic	modifier=pre
+economy	modifier=head
+deficits	modifier=head
+fiscal plans
+defence budget
+budget deficit
+wealth creation
+wealth	modifier=pre
+economic plan
+economic ruin
+economic policy
+market exonomy
+gas prices	head=fuel prices
+electricity prices	head=fuel prices
+gas and electricity prices	head=fuel prices
+fuel prices	head=fuel prices
+fuel price	head=fuel prices
+price of fuel	head=fuel prices
+national debt
+government spending
+public finances
+UK economy	head=British economy
+British economy	head=British economy
+macroeconomic stability
+economic stability
+public spending
+financial market	head=financial market
+financial markets	head=financial market
+fiscal responsibility
+economics
+credit rating
+post-austerity
+Transatlantic Trade and Investment Partnership	head=TTIP
+TTIP	head=TTIP

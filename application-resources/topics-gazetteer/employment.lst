@@ -1,0 +1,47 @@
+skills	modifier=head
+employment rate	head=employment rate
+employment rates	modifier=employment rate
+unemployment	head=employment rate
+data skills
+apprenticeship
+wage	modifier=head
+wages	modifier=head
+low pay
+pay scale	head=pay scale
+pay scales	head=pay scale
+trade union
+equal pay
+factory	modifier=head
+factories	modifier=head
+jobs	modifier=head
+unemployed	modifier=pre
+people in work	head=employment rate
+workers
+employees
+employee
+employed
+out of work	head=employment rate
+low wage	head=wages
+low wages	head=wages
+high wage	head=wages
+high wages	head=wages
+back to work	=
+employment	modifier=head
+full employment	head=employment rate
+apprenticeships	modifier=head
+zero hours contract	head=zero hours contract
+zero hours contracts	head=zero hours contract
+full time work	head=full time work
+full time employment	head=full time work
+living wage	head=wages
+self-employed	modifier=pre
+jobseekers
+pay rise
+employees
+income
+incomes
+low-paid
+minimum wage
+furlough
+key workers
+working people

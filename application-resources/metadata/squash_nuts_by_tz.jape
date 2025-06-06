@@ -1,0 +1,28 @@
+Phase: SquashNutsByTimezone
+Input: Tweet
+Options: control = appelt
+
+Rule: SquashNutsByTimezone
+(
+ {Tweet}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots.get("Tweet"));
+
+  FeatureMap userFeatures = (FeatureMap) theTweet.getFeatures().get("user");
+
+  if (userFeatures != null) {
+	  String timezone = (String) userFeatures.get("time_zone");
+	  String language = (String) doc.getFeatures().get("lang");
+	  String locationSource = (String) doc.getFeatures().get("LocationSource");
+
+	  if (locationSource == "home") {
+	  	if (!(timezone == null || ("London".equals(timezone) && "en".equals(language)))) {
+		  	doc.getFeatures().remove("NUTS1");
+		  	doc.getFeatures().remove("NUTS2");
+
+		}	  
+	  } 
+  }
+}

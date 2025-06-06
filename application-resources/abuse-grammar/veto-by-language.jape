@@ -1,0 +1,28 @@
+Imports: {
+  import gate.Utils;
+}
+
+Phase: VetoByLanguage
+Input: NotAbuseByLanguage Tweet
+Options: control = all
+
+Rule: NotAbuseByLanguage
+( 
+ {NotAbuseByLanguage within Tweet}
+):tag
+--> 
+:tag{
+	Annotation a = tagAnnots.iterator().next();
+ 	
+ 	String lang = (String)a.getFeatures().get("lang");
+ 	
+ 	Annotation tweet = Utils.getCoveringAnnotations(inputAS,a,"Tweet").iterator().next();
+ 	
+ 	String tweetLang = (String)tweet.getFeatures().get("lang");
+ 	
+ 	if (tweetLang.equals(lang)) {
+ 		Utils.addAnn(outputAS,a,"Veto",Utils.featureMap("rule","veto-by-language:NotAbuseByLanguage"));
+ 	}
+ 	
+ 	inputAS.remove(a);
+}

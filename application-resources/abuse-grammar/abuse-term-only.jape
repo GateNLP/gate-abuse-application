@@ -1,0 +1,64 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: AbuseTermOnly
+Input: Split SingleAbuseTerm Token Abuse UserMention Sentence NounChunk
+Options: control = appelt
+
+/* Here we check if there are any sentences that just contain 1 or more @Mentions
+   followed by a single abuse term or a noun phrase containing a single abuse term.
+   In this case, we add an Abuse annotation, but we also add an AbuseTerm annotation here
+   as these get counted by the AbuseCount JAPE later
+*/
+   
+Rule: BlockAbuseAlready
+Priority: 700
+
+// note that we need the Split to make this at least as long as the other rules
+// so that it fires with greater priority
+
+( 
+ ({Split})
+ ({Sentence contains Abuse})):tag
+--> 
+ {}
+ 
+ 
+
+Rule: SingleAbusePhraseOnly
+Priority: 350
+
+( 
+{Split}
+({UserMention})[1,5]
+)
+({NounChunk contains SingleAbuseTerm}):tag
+({Token.string== "!"}|{Token.string == "."})
+
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "low",rule="abuse-term-only:SingleAbusePhraseOnly"},
+ :tag.AbuseTerm = {kind = "SingleAbuseTerm"},
+ :tag.AbusePhrase = {rule = "abuse-term-only:SingleAbusePhraseOnly"}
+
+
+Rule: SingleAbuseTermOnly
+Priority: 300
+
+( 
+{Split}
+(
+ ({UserMention})[1,5]
+ )
+ ({SingleAbuseTerm}):tag
+):abuse
+({Token.string== "!"}|{Token.string == "."})
+--> 
+ :tag.Abuse = {target = "addressee", confidence = "low",rule="abuse-term-only:SingleAbuseTermOnly"},
+  :tag.AbuseTerm = {kind = "SingleAbuseTerm"},
+  :abuse.AbusePhrase = {rule = "abuse-term-only:SingleAbuseTermOnly"}
+  
+

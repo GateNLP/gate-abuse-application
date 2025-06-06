@@ -1,0 +1,38 @@
+/**
+ * We've been essentially doing this via a runtime mapping inside the
+ * elasticseach index, which works but is horribly slow, so let's just
+ * do it as part of the app.
+ **/
+
+Phase: AbuseCountToFirstToken
+Input: Tweet
+Options: control = appelt
+
+Rule: UnnestAbuse
+(
+ {Tweet}
+):twt
+-->
+:twt {
+  Annotation theTweet = gate.Utils.getOnlyAnn(twtAnnots);
+ 
+  AnnotationSet abuseAnnotations = gate.Utils.getContainedAnnotations(inputAS, theTweet, "Abuse");
+  
+  List<String> abuseStrings = new ArrayList<String>();
+  List<String> abuseTypes = new ArrayList<String>();
+  
+  for(Annotation abAnn: abuseAnnotations){
+    
+    // this is unrelated but allows us to tell the difference between Abuse
+    // annotations generated from the original text, which can be overridden
+    // if we are analysing translated text
+    abAnn.getFeatures().put("from", "original");
+    
+    abuseStrings.add((String)abAnn.getFeatures().get("normalised_string"));
+    if (abAnn.getFeatures().containsKey("type")) abuseTypes.add((String)abAnn.getFeatures().get("type"));
+  }
+
+  doc.getFeatures().put("abuse_string", abuseStrings);
+  doc.getFeatures().put("abuse_type", abuseTypes);
+}
+

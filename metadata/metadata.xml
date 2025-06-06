@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<metadata xmlns="http://gate.ac.uk/ns/pipeline-metadata">
+  <pipeline-name>GATE Hate</pipeline-name>
+  <slug>gate-hate-generic</slug>
+  <ordering>80</ordering>
+  <annotation-selectors>:Topic, :Abuse, :Politician, :Party, :Hashtag, :UserID, :URL, :Organization, :Person, :Address, :Date, :Location, :Money, :Percent</annotation-selectors>
+  <additional-annotations>:AbusePhrase, :Sentence, :SentenceSentiment, :Tweet, :TweetSegment, :Author, :ReplyTo, :RetweetedAuthor, :SlurLookup, :OffensiveLookup, :SensitiveLookup</additional-annotations>
+  <tags>
+    <tag>English</tag>
+    <tag>Abuse</tag>
+    <tag>Politics</tag>
+    <tag>Twitter</tag>
+  </tags>
+</metadata>
+
+

@@ -1,0 +1,51 @@
+/*
+ * Simple JAPE grammar to take the id off the Tweet annotation and add a URI
+ * feature suitable for use by Mimir, plus other document features that will be
+ * indexed.
+ *
+ * This grammar *must* be configured with "Original markups" as its
+ * inputASName or have the Tweet annotation copied into its input annotation
+ * set.
+ */
+Imports: {
+  import gate.Utils;
+  import gate.corpora.twitter.TweetUtils;
+  import org.joda.time.DateTime;
+}
+
+Phase: TweetIdToUri
+Input: Tweet
+Options: control = appelt
+
+Rule: Twt
+({Tweet}):twt
+-->
+:twt {
+  Annotation twt = gate.Utils.getOnlyAnn(twtAnnots);
+  Object id = twt.getFeatures().get("id_str");
+  Object username = ((Map)twt.getFeatures().get("user")).get("screen_name");
+  if(id != null && username != null) {
+    doc.getFeatures().put("tweet_uri", "https://twitter.com/" + username + "/status/" + id);
+    doc.getFeatures().put("author", username);
+    doc.getFeatures().put("tweet_id", id);
+  }
+  // distinguish retweets, replies and original tweets
+  if(twt.getFeatures().get("retweeted_status") != null) {
+    doc.getFeatures().put("tweet_kind", "retweet");
+  } else if(twt.getFeatures().get("in_reply_to_user_id_str") != null) {
+    doc.getFeatures().put("tweet_kind", "reply");
+  } else {
+    doc.getFeatures().put("tweet_kind", "original");
+  }
+  // full timestamp
+  String createdAt = (String)twt.getFeatures().get("created_at");
+  if(createdAt != null) {
+    try {
+      DateTime dt = TweetUtils.CREATED_AT_FORMAT.parseDateTime(createdAt);
+      doc.getFeatures().put("timestamp", dt.toString());
+    } catch(IllegalArgumentException e) {
+      // could not parse as a string
+      throw new NonFatalJapeException("Could not parse " + createdAt + " as a date", e);
+    }
+  }
+}

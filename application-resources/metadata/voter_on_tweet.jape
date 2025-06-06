@@ -1,0 +1,49 @@
+Phase: VoterOnTweet
+Input: Voter
+Options: control = all
+
+
+Rule:VoterOnTweetHigh
+Priority: 1000
+( 
+ {Voter.minorType==high}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+
+	doc.getFeatures().put("voterHighConfidence", TweetFeatures.get("majorType"));  
+}
+
+Rule:VoterOnTweetMedium
+Priority: 1000
+( 
+ {Voter.minorType==medium}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+
+	doc.getFeatures().put("voterMediumConfidence", TweetFeatures.get("majorType"));  
+}
+
+Rule:VoterOnTweetLow
+Priority: 1000
+( 
+ {Voter.minorType==low}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+
+	doc.getFeatures().put("voterLowConfidence", TweetFeatures.get("majorType"));  
+}

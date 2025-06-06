@@ -1,0 +1,240 @@
+<p>A service that tags abusive utterances in any text. It includes a feature, "type", indicating the type of abuse if any, such as sexist, racist etc, and a "target" feature that indicates if the abuse was aimed at the addressee or some other party. This can be run on any English language text.</p>
+
+<p>It will also tag UK members of parliament for the 2015, 2017 and 2019 general elections, and candidates for the 2017 and 2019 elections. Where an individual has run for election or been elected multiple times, multiple "Politician" annotations will appear with different "minorType" features. In this way, a person's recent political career can be tracked. The current parliament is the 58th parliament, with previous parliaments counting down, so that MPs with a minorType feature of "mp55" are those that were MPs before the general election in 2015.</p>
+
+<p>The service will also tag a range of politically relevant topics, as well as entities such as persons, locations and organizations and Twitter entities such as hashtags and user mentions. It is designed to run on tweets in the original Twitter JSON input format, on which it will also produce metadata such as whether the tweet is a reply or a retweet. Upload your own or harvest some with our <a href="https://cloud.gate.ac.uk/shopfront/displayItem/twitter-collector">Twitter Collector</a>. However it can be run on any text.</p>
+
+<p>Note that this is an updated and more generic version of our original GATE Hate for Politics app and should be used in preference to that service, unless you are wanting to replicate previous published work, as improvements will only be included in this version going forward.</p>
+
+<p><button class="btn btn-info" data-toggle="collapse" data-target="#ldAnnotationDetails"><i class="icon-info-sign icon-white"></i> Annotation details</button></p>
+
+<div class="collapse clearfix" id="ldAnnotationDetails">
+<table>
+  <tbody>
+    <tr>
+      <td valign="top" colspan="2">
+        <b>Default annotations</b>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Abuse</tt>
+      </td>
+      <td valign="top">
+        Abusive phrases. Includes a feature, "type", indicating the type of abuse, such as racist, religious etc., and a "target" feature indicating whether the abuse is intended for the addressee or some other party.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Topic</tt>
+      </td>
+      <td valign="top">
+        Mentions of topics relevant to UK politics, based largely on the <a href="https://www.gov.uk/government/topics">topic classification used on gov.uk</a>.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Politician</tt>
+      </td>
+      <td valign="top">
+        Recognised UK politicians such as MPs, parliamentary candidates and other significant individuals such as party leaders who are not MPs. MP mentions include a feature distinguishing them by parliament, e.g. as of 2020 we are in the 58th parliament. Where an individual has been elected to more than one parliament, they receive multiple annotations indicating this.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Party</tt>
+      </td>
+      <td valign="top">
+        UK political parties.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Hashtag</tt>
+      </td>
+      <td valign="top">
+        From the original tweet, if it was run on tweets.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:UserID</tt>
+      </td>
+      <td valign="top">
+        From the original tweet, if it was run on tweets.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:URL</tt>
+      </td>
+      <td valign="top">
+        From the original tweet, if it was run on tweets.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Organization</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Person</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Address</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Date</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Location</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Money</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Percent</tt>
+      </td>
+      <td valign="top">
+        Entities found by GATE's ANNIE named entity recogniser.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" colspan="2">
+        <b>Additional annotations available if selected</b>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:AbusePhrase</tt>
+      </td>
+      <td valign="top">
+        Abusive phrases that may, or may not, contribute to the creation of an Abuse annotation.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Sentence</tt>
+      </td>
+      <td valign="top">
+        Sentences
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:SentenceSentiment</tt>
+      </td>
+      <td valign="top">
+        Sentences which convay sentiment. These have multiple features detailing the relevant words and polarity etc.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Tweet</tt>
+      </td>
+      <td valign="top">
+        Original tweet data
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:TweetSegment</tt>
+      </td>
+      <td valign="top">
+        When a JSON objcect from Twitter contains multiple Tweets, for example with a quote tweet, each individual tweet gets a TweetSegment annotation.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:Author</tt>
+      </td>
+      <td valign="top">
+        Information on the Author of a Tweet.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:ReplyTo</tt>
+      </td>
+      <td valign="top">
+        Information on the twitter user being replied to.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:RetweetedAuthor</tt>
+      </td>
+      <td valign="top">
+        Information on the twitter user being retweeted.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:SlurLookup</tt>
+      </td>
+      <td valign="top">
+        A slur term found in the document, but which may not have contribured to the detected abuse.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:OffensiveLookup</tt>
+      </td>
+      <td valign="top">
+        An offensive term found in the document, but which may not have contribured to the detected abuse.
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <tt>:SensitiveLookup</tt>
+      </td>
+      <td valign="top">
+        A sensitive term found in the document, but which may not have contribured to the detected abuse.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When the input is Twitter JSON and the output is saved as GATE XML or sent to M&iacute;mir, the following additional information is extracted from the tweet metadata and made available as document-level features:</p>
+<dl>
+  <dt>author</dt> <dd>The screen name of the Tweet author</dd>
+  <dt>tweet_id</dt> <dd>The ID of this tweet</dd>
+  <dt>tweet_uri</dt> <dd>URL of the tweet in the form <code>https://twitter.com/{author}/status/{id}</code></dd>
+  <dt>tweet_kind</dt> <dd>original, retweet or reply</dd>
+  <dt>retweet_of_screen_name</dt> <dd>If it's a retweet, who is it a retweet of?</dd>
+  <dt>retweet_of_status_id</dt> <dd>If it's a retweet, the status ID of the tweet it's a retweet of.</dd>
+  <dt>in_reply_to_screen_name</dt> <dd>If it's a reply, who is it a reply to?</dd>
+  <dt>in_reply_to_status_id</dt> <dd>If it's a reply, the status ID of the tweet it's a reply to.</dd>
+  <dt>timestamp</dt> <dd>ISO8601-formatted representation of the tweet "created_at" timestamp</dd>
+  <dt>hour_timestamp and minute_timestamp</dt> <dd>Numeric representation of the timestamp to hour (YYYYMMDDHH) or minute (YYYYMMDDHHmm) granularity</dd>
+</dl>
+</div>

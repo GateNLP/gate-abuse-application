@@ -1,0 +1,30 @@
+Phase: GetOrig
+Input: Tweet
+Options: control = appelt
+
+/* Get the latitude and longitude from the metadata */
+
+Rule:GetOrig
+Priority: 1000
+( 
+ {Tweet}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+	if (TweetFeatures.containsKey("retweeted_status") && 
+		TweetFeatures.get("retweeted_status") != null) {
+		Map origTweet = (Map) TweetFeatures.get("retweeted_status");
+
+		doc.getFeatures().put("orig_id", origTweet.get("id_str"));
+	} else {
+		doc.getFeatures().put("orig_id", TweetFeatures.get("id_str"));
+	}
+}
+
+
+
+

@@ -1,0 +1,111 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+}
+
+Phase: ModifiedTopic
+Input: TopicLookup CNoun Token Split
+Options: control = brill test = positive
+
+/*
+ Note that we purposely generate multiple annotations in order to deal with topics that hvae different kinds (themes). 
+ We need to later delete any duplicate annotations that have the same theme
+*/
+
+Rule: LookupTopicModifier
+Priority: 1000
+/* if a LookupTopic is a pre-modifier, include one or more CNouns following it. Warning: this may overgenerate
+if the LookupTopic has a head feature, use that for "head" value, if not, use "root" feature
+*/
+(
+  ({TopicLookup.modifier == pre}):head
+ (({CNoun})[1,2] )
+):tag
+--> {
+  AnnotationSet topicAS = (AnnotationSet) bindings.get("tag");
+  Annotation headAnn = Utils.getOnlyAnn(bindings.get("head"));
+  String category = (String) headAnn.getFeatures().get("category");
+  // join together the root of the tokens of the head (lookup bit)
+  
+  List<Annotation> headTokens = Utils.inDocumentOrder(
+    Utils.getContainedAnnotations(inputAS, headAnn, "Token"));
+  List<String> headRoots = new ArrayList<String>(headTokens.size());
+
+  // Insist that all tokens must of the specified category if one is set in the gazetteer.
+  Boolean allowed = true;
+  if (category != null) {
+    for(Annotation a : headTokens) {
+      if(!category.equals(a.getFeatures().get("category"))) {
+        allowed = false;
+        break;
+      }
+    }
+    //allowed = headTokens.stream().allMatch(a -> a.getFeatures().get("category").equals(category));
+  }
+
+  if (allowed) {
+    for(Annotation a : headTokens) 
+    {
+      headRoots.add((String)a.getFeatures().get("string"));
+    }
+
+    List<Annotation> topicTokens = Utils.inDocumentOrder(
+    Utils.getContainedAnnotations(inputAS, topicAS, "Token"));
+    List<String> topicRoots = new ArrayList<String>(topicTokens.size());
+    for(Annotation a : topicTokens) {
+      topicRoots.add((String)a.getFeatures().get("string"));
+    }
+
+    FeatureMap features = Factory.newFeatureMap();
+
+    features.put("subtheme", StringUtils.join(headRoots, " "));
+    features.put("root", StringUtils.join(topicRoots, " "));
+    features.put("rule", "LookupTopicModifier");
+    features.put("theme", headAnn.getFeatures().get("minorType"));
+    outputAS.add(topicAS.firstNode(), topicAS.lastNode(), "Topic", features);
+  }
+}
+
+
+Rule: ModifierLookupTopic
+Priority: 1000
+/* if a LookupTopic is a head, include one or more CNouns or adjectives preceding it. 
+   However, don't include anything that's a stopword
+*/
+
+
+(
+ ({CNoun, !TopicLookup.majorType == stopword} | {Token.category == JJ}) [1,2]
+ ({TopicLookup.modifier == head}):head
+):tag
+-->
+
+{
+  AnnotationSet topicAS = (AnnotationSet) bindings.get("tag");
+  Annotation headAnn = Utils.getOnlyAnn(bindings.get("head"));
+  
+  List<Annotation> headTokens = Utils.inDocumentOrder(
+    Utils.getContainedAnnotations(inputAS, headAnn, "Token"));
+  List<String> headRoots = new ArrayList<String>(headTokens.size());
+  for(Annotation a : headTokens) 
+  {
+    headRoots.add((String)a.getFeatures().get("string"));
+  }
+  
+   List<Annotation> topicTokens = Utils.inDocumentOrder(
+    Utils.getContainedAnnotations(inputAS, topicAS, "Token"));
+  List<String> topicRoots = new ArrayList<String>(topicTokens.size());
+  for(Annotation a : topicTokens) {
+    topicRoots.add((String)a.getFeatures().get("string"));
+  }
+
+   FeatureMap features = Factory.newFeatureMap();
+   features.put("subtheme", StringUtils.join(headRoots, " "));
+    features.put("root", StringUtils.join(topicRoots, " "));
+   features.put("rule", "ModifierLookupTopic");
+   features.put("theme", headAnn.getFeatures().get("minorType"));
+ outputAS.add(topicAS.firstNode(), topicAS.lastNode(), "Topic", features);
+
+}
+
+

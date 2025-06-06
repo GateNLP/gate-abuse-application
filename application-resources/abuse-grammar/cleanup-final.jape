@@ -1,0 +1,26 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Cleanup
+Input: AbuseTerm Veto HatredDiscussion TweetSegment Abuse NotAbuseLookup
+Options: control = all
+
+
+Rule: Cleanup
+Priority: 700
+
+( 
+ ({AbuseTerm}|{NotAbuseLookup}|{HatredDiscussion}|{Veto})
+):tag
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+

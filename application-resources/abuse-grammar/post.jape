@@ -1,0 +1,58 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Post
+Input: AbuseTerm Veto HatredDiscussion TweetSegment Abuse
+Options: control = all
+
+
+Rule: AbuseInQuotes
+Priority: 200
+
+( 
+ ({Abuse within TweetSegment.tweetType=="quotedTweet"})):tag
+-->
+{
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+FeatureMap fm = abuse.getFeatures();
+String oldvalue = fm.get("target").toString();
+fm.put("target",oldvalue+"-quote");
+fm.put("rule", "post:AbuseInQuotes");
+}
+
+Rule: AbuseInQuotations
+Priority: 200
+
+( 
+ ({Abuse within Quote})):tag
+-->
+{
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+FeatureMap fm = abuse.getFeatures();
+String oldvalue = fm.get("target").toString();
+fm.put("target","other-quotation");
+fm.put("rule", "post:AbuseInQuotations");
+}
+
+
+Rule: AbuseInRetweets
+Priority: 200
+
+( 
+ ({Abuse within TweetSegment.tweetType=="retweet"})):tag
+-->
+{
+AnnotationSet abuses = bindings.get("tag");  
+Annotation abuse = abuses.iterator().next();  
+FeatureMap fm = abuse.getFeatures();
+String oldvalue = fm.get("target").toString();
+fm.put("target",oldvalue+"-retweet");
+fm.put("rule", "post:AbuseInRetweets");
+}
+

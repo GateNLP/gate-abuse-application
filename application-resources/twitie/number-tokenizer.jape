@@ -1,0 +1,48 @@
+Phase:   NumberTokenizer
+Input: Number
+Options: control = all
+
+Rule:Tokenizer
+(
+	{Number}
+):number
+-->
+{
+	/**
+	 * splits the text under a number into separate tokens at the change from a digit to a non-digit to emulate the normal ANNIE tokenizer
+	 **/
+
+	Annotation number = bindings.get("number").iterator().next();
+
+	AnnotationSet tokens = inputAS.get("Token",number.getStartNode().getOffset(),number.getEndNode().getOffset());
+
+	for (Annotation token : tokens) {
+		if ("mixed".equals(token.getFeatures().get("orth"))) {
+			String text = gate.Utils.stringFor(doc,token);
+
+			inputAS.remove(token);
+
+			java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("\\d+|\\D+").matcher(text);
+			while (matcher.find()) {
+				FeatureMap features = Factory.newFeatureMap();
+				features.put("string",matcher.group(0));
+				features.put("length",matcher.end()-matcher.start());
+
+				if (matcher.group(0).matches("[0-9]+")) {
+					features.put("kind","number");
+				}
+				else {
+					features.put("kind","word");
+				}
+		
+				try {
+					inputAS.add(token.getStartNode().getOffset()+(long)matcher.start(),token.getStartNode().getOffset()+(long)matcher.end(),"Token",features);	
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}		
+	}
+}
+

@@ -1,0 +1,103 @@
+Google tax
+Robin Hood tax
+Tobin tax
+VAT	head=vat
+aggregrate levy
+Air passenger duty 
+alcohol tax	head=alcohol tax
+alcohol duty	head=alcohol tax
+aviation tax	head=aviation tax
+aviation duty	head=aviation tax
+bedroom tax	head=bedroom tax
+bedroom taxes	head=bedroom tax
+Betting & Gambling duty 	head=betting tax
+Betting and gambling duty	head=betting tax
+betting tax	head=betting tax
+betting duty	head=betting tax
+capital gains tax	head=capital gains tax
+capital gains	head=capital gains tax
+Climate change levy
+corporation tax
+council tax
+customs duty
+diesel tax	head=diesel tax
+diesel duty	head=diesel tax
+export tax	head=export duty
+export duty	head=export duty
+fuel duty	head=fuel tax
+fuel tax	head=fuel tax
+hydrocarbon tax	head=hydrocarbon tax
+hydrocarbon duty	head=hydrocarbon tax
+inheritance tax
+insurance premium tax
+landfill tax
+mansion tax	head=mansion tax
+mansion taxes	head=mansion tax
+national insurance	head=national insurance
+national insurance tax	head=national insurance
+NI	head=national insurance
+NI tax	head=national insurance
+personal tax
+petroleum revenue tax	head=petrol tax
+petrol tax	head=petrol tax
+petrol duty	head=petrol tax
+stamp duty	head=stamp duty
+stamp duty land tax	head=stamp duty
+stamp duty reserve tax	head=stamp duty
+tobacco tax
+vehicle tax
+Business Rates
+rates
+VAT vehicle excise
+tax	modifier=head
+tax allowance	head=tax allowance
+tax allowances	head=tax allowance
+tax avoidance
+tax bill	head=tax bill
+tax bills	head=tax bill
+tax break	head=tax break
+tax breaks	head=tax break
+tax credit	head=tax credit
+tax credits	head=tax credit
+tax cut	head=tax cuts
+tax cuts	head=tax cuts
+tax rate	head=tax rate
+tax rates	head=tax rate
+tax rebate	head=tax rebate
+tax rebates	head=tax rebate
+tax revenue	head=tax revenue
+tax revenues	head=tax revenue
+taxation	head=tax
+taxes	modifier=head
+second home tax
+nuclear tax
+bed tax
+insulation tax
+crime tax
+obesity tax
+global warming airline tax
+skyway tax
+planning gain supplement
+stealth tax
+garden debris tax
+English lesson tax
+dormant account tax
+home information tax
+business rate tax relief
+business rate tax
+window tax
+spare room subsidy
+personal allowance
+personal tax allowance
+income tax
+tax and revenue
+jobs tax
+flat-rate levy
+levy
+levies
+corporate tax
+tax relief
+tax increase
+taxpayer
+taxpayers
+tax evasion	head=tax evasion

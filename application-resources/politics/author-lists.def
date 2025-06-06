@@ -1,0 +1,12 @@
+mps_58_accounts.lst:person:mp58::Author
+mps_57_accounts.lst:person:mp57::Author
+mps_56_accounts.lst:person:mp56::Author
+mps_55_accounts.lst:person:mp55::Author
+mp_candidates_2019_accounts.lst:person:candidate2019::Author
+candidates_2017_accounts.lst:person:candidate2017::Author
+mep_candidates_2019_accounts.lst:person:europarl2019candidate::Author
+meps-2014-2019_accounts.lst:person:europarl8MEP::Author
+party_handle.lst:party:::Author
+party_handle_regional.lst:partyRegional:::Author
+party_leaders_accounts.lst:person:leader::Author
+non_mp_accounts.lst:person:other::Author

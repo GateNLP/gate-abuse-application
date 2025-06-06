@@ -1,0 +1,26 @@
+health	modifier=head
+healthcare	modifier=head
+hospital	modifier=head
+hospitals	modifier=head
+health service	head=health service
+health services		head=health service
+NHS	head=NHS
+National Health Service	head=NHS
+A & E	head=A&E
+accident and emergency	head=A&E
+nurse	modifier=head
+nurses	modifier=head
+doctor	modifier=head
+doctors	modifier=head
+patients	modifier=head
+mental health
+physical health
+doctors and nurses
+A&E	head=A&E
+social care
+NHS hospital	head=hospital
+NHS hospitals	head=hospital
+private hospital	head=hospital
+private hospitals	head=hospital
+private healthcare	head=health
+life expectancy

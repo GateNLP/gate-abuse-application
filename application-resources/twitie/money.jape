@@ -1,0 +1,73 @@
+Phase:	Money
+Input: Token Lookup Split Number
+Options: control = appelt
+
+Macro: SPEND_MONEY
+:number
+{
+	try {
+		AnnotationSet match = bindings.get("number");
+
+		Annotation number = bindings.get("value").iterator().next();
+		Annotation currency = bindings.get("currency").iterator().next();
+
+		AnnotationSet multiplier = bindings.get("multiplier");
+
+		Double value = (Double)number.getFeatures().get("value");
+
+		if (multiplier != null && multiplier.size() == 1) {
+			String m = gate.Utils.contentFor(doc, multiplier.iterator().next()).toString().toLowerCase();
+
+			if (m.equals("k")) {
+				value = value * 1000;
+			}			
+			else if (m.equals("m")) {
+				value = value * 1000000;
+			}
+			else if (m.equals("bn")) {
+				value = value * 1000000000;
+			}
+			else {
+				System.err.println("unknown multiplier: " + m);
+				return;
+			}
+		}
+
+		FeatureMap params = Factory.newFeatureMap();
+	
+		params.put("value", value);
+
+		if (currency.getFeatures().containsKey("symbol")) {
+			params.put("currency", currency.getFeatures().get("symbol"));
+		}
+		else {
+			params.put("currency", gate.Utils.contentFor(doc,currency).toString());
+		}
+
+
+		outputAS.add(match.firstNode().getOffset(), match.lastNode().getOffset(), "Money", params);
+	}
+	catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+
+Rule:	MoneyCurrencyUnit
+(        
+   ({Number}):value
+   (({Token.string ==~ "(?i:k)"}|{Token.string ==~ "(?i:m)"}|{Token.string ==~ "(?i:bn)"})?):multiplier
+   ({Lookup.majorType == currency_unit}):currency
+):number
+-->
+SPEND_MONEY
+
+Rule: MoneySymbolUnit
+(   
+   ({Lookup.majorType == currency_unit}|{Token.symbolkind == currency}):currency
+   ({Number}):value
+   ({Token.string ==~ "(?i:k)"}|({Token.string ==~ "(?i:m)"}|{Token.string ==~ "(?i:bn)"})?):multiplier
+   ({Lookup.majorType == currency_unit})?
+)
+:number 
+ -->
+SPEND_MONEY

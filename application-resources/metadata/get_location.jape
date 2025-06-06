@@ -1,0 +1,40 @@
+Phase: GetLocation
+Input: Tweet
+Options: control = appelt
+
+/* Get the latitude and longitude from the metadata */
+
+Rule:GetLatLng
+Priority: 1000
+( 
+ {Tweet}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+	if (TweetFeatures.containsKey("coordinates") && 
+		TweetFeatures.get("coordinates") != null) {
+		Map coordinates = (Map) TweetFeatures.get("coordinates");
+
+		List LngLat = (List) coordinates.get("coordinates");
+		doc.getFeatures().put("long", LngLat.get(0));
+		doc.getFeatures().put("lat", LngLat.get(1));
+	}
+
+	if (TweetFeatures.containsKey("user") && 
+		TweetFeatures.get("user") != null) {
+		Map User = (Map) TweetFeatures.get("user");
+		if (User.containsKey("location") && 
+			User.get("location") != null) {
+			doc.getFeatures().put("user_location", User.get("location"));
+		}
+	}
+
+}
+
+
+
+

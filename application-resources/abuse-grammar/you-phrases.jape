@@ -1,0 +1,30 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: YouPhrases
+Input: Split AbuseTerm Abuse SlurLookup
+Options: control = appelt
+
+
+//SOME ABUSE TERMS ARE ALREADY COMPLETE YOU PHRASES
+//SO OVERRIDE PREVIOUS PRONOUN MATCHING
+
+Rule: GoBackWhereYouCameFrom
+Priority: 600
+
+(
+ ({Abuse contains SlurLookup.pos=="youphrase"})):tag
+--> 
+{  
+AnnotationSet abuses = bindings.get("tag");
+Annotation abuse = abuses.iterator().next();
+FeatureMap fm = abuse.getFeatures();
+fm.put("target", "addressee");
+fm.put("confidence", "high");
+fm.put("rule", "you-phrases:GoBackWhereYouCameFrom");
+},
+:tag.AbusePhrase = {rule ="you-phrases:GoBackWhereYouCameFrom"}

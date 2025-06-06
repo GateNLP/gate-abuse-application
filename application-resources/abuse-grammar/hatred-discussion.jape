@@ -1,0 +1,109 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: HatredDiscussion
+Input: SensitiveLookup TopicLookup Token SlurLookup OffensiveLookup UserID
+Options: control = all
+
+
+
+Rule: YouCallingMeIdiot
+Priority: 700
+
+(
+ ({Token.string=="call"}|
+  {Token.string=="calling"}|
+  {Token.string=="called"}|
+  {Token.string=="Call"}|
+  {Token.string=="Calling"}|
+  {Token.string=="Called"}|
+  {Token.string=="CALL"}|
+  {Token.string=="CALLING"}|
+  {Token.string=="CALLED"})
+ ({Token})[0,2]
+ ({SlurLookup}|{SensitiveLookup}|{OffensiveLookup})):tag
+--> 
+ :tag.HatredDiscussion = {rule="hatred-discussion:YouCallingMeIdiot"}
+
+
+Rule: AntiBritish
+Priority: 700
+
+(
+ (({Token.string=="anti"}|
+  {Token.string=="Anti"}|
+  {Token.string=="ANTI"})
+ ({SensitiveLookup})):tag
+)
+--> 
+ :tag.HatredDiscussion = {rule="hatred-discussion:AntiBritish"}
+
+Rule: AntiBritish2
+Priority: 700
+
+(
+ (({Token.beforeHyphen=="anti"}|
+  {Token.beforeHyphen=="Anti"}|
+  {Token.beforeHyphen=="ANTI"})):tag
+)
+--> 
+ :tag.HatredDiscussion = {}
+
+
+Rule: TheWordFag
+Priority: 700
+
+(
+ (({Token.string=="the"})
+ ({Token.string=="word"}|{Token.string=="term"})
+ ({SlurLookup})):tag
+)
+--> 
+ :tag.HatredDiscussion = {rule="hatred-discussion:TheWordFag"}
+
+
+Rule: GayHating
+Priority: 700
+
+(
+ (({SensitiveLookup})
+ ({Token.string=="hating"}|
+  {Token.string=="Hating"}|
+  {Token.string=="HATING"}|
+  {Token.string=="hater"}|
+  {Token.string=="Hater"}|
+  {Token.string=="HATER"}|
+  {Token.string=="Bashing"}|
+  {Token.string=="bashing"}|
+  {Token.string=="BASHING"}
+  )):tag
+)
+--> 
+ :tag.HatredDiscussion = {rule="hatred-discussion:GayHating"}
+
+
+Rule: Gay-Hating
+Priority: 700
+
+(
+ ({Token.afterHyphen=="hating"}|
+  {Token.afterHyphen=="Hating"}|
+  {Token.afterHyphen=="HATING"}|
+  {Token.afterHyphen=="hater"}|
+  {Token.afterHyphen=="Hater"}|
+  {Token.afterHyphen=="HATER"}|
+  {Token.afterHyphen=="Bashing"}|
+  {Token.afterHyphen=="bashing"}|
+  {Token.afterHyphen=="BASHING"}|
+  {Token.afterHyphen=="Basher"}|
+  {Token.afterHyphen=="basher"}|
+  {Token.afterHyphen=="BASHER"}
+  )):tag
+--> 
+ :tag.HatredDiscussion = {rule="hatred-discussion:Gay-Hating"}
+
+

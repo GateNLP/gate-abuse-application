@@ -1,0 +1,120 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: Tidy
+Input: SensitiveLookup TopicLookup Token SlurLookup OffensiveLookup UserID
+Options: control = all
+
+
+
+
+Rule: JewHatingDick
+Priority: 700
+
+( 
+ ({SlurLookup within HatredDiscussion}) |
+ ({SensitiveLookup within HatredDiscussion}) |
+ ({OffensiveLookup within HatredDiscussion}) |
+ ({SlurLookup within Veto}) |
+ ({SensitiveLookup within Veto}) |
+ ({OffensiveLookup within Veto})
+):tag
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+
+
+
+
+
+//There's a gazetteer for veto phrases such as names that contain a slur,
+//common phrases such as polish a turd etc.
+Rule: JonathanSpink
+Priority: 700
+
+(
+ (({SlurLookup within NotAbuseLookup}) |
+ ({SensitiveLookup within NotAbuseLookup}) |
+ ({OffensiveLookup within NotAbuseLookup})):tag
+)
+-->
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+
+
+
+
+
+//Remove stuff that is within another possibly longer, more important thing.
+
+//This is about not using a sensitive marker when it's covered by a longer slur.
+// As in, "boys" when it's in "bum boys"
+Rule: TankToppedBumBoys
+Priority: 700
+
+( 
+ ({SensitiveLookup within SlurLookup}):tag
+)
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+
+//As above, the longer slur takes precedence over the shorter offensive word.
+Rule: PieceOfShit
+Priority: 700
+
+( 
+ ({OffensiveLookup within SlurLookup}):tag
+)
+--> 
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+
+
+Rule: AtConservativesTwat
+Priority: 700
+
+(
+ ({SensitiveLookup within UserID}):tag
+)
+-->
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+Rule: IdiotDotCom
+Priority: 700
+
+(
+ ({SlurLookup within URL}):tag
+)
+-->
+{  
+AnnotationSet lookups = bindings.get("tag");
+Annotation lookup = lookups.iterator().next();
+doc.getAnnotations().remove(lookup);
+}
+
+

@@ -1,0 +1,41 @@
+Phase: GetLanguage
+Input: Tweet
+Options: control = appelt
+
+
+Rule:GetLang
+Priority: 1000
+( 
+ {Tweet}
+ ):tag
+ -->
+{
+	AnnotationSet TweetAS = bindings.get("tag");
+	Annotation TweetAnn = TweetAS.iterator().next();
+
+	FeatureMap TweetFeatures = TweetAnn.getFeatures();
+
+        if(TweetFeatures.get("lang") != null) {
+                doc.getFeatures().put("lang", TweetFeatures.get("lang"));
+        }
+        /*
+         * The next bit does the user language, not the tweet language
+	if (TweetFeatures.containsKey("user") && 
+		TweetFeatures.get("user") != null) {
+		Map User = (Map) TweetFeatures.get("user");
+
+		if (User.containsKey("lang") && 
+			User.get("lang") != null) {
+			doc.getFeatures().put("lang", User.get("lang"));
+		}
+	}
+        */
+
+        if("en".equals(doc.getFeatures().get("lang"))) {
+                doc.getFeatures().put("isEnglish", "yes");
+        }
+}
+
+
+
+

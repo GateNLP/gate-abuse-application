@@ -1,0 +1,42 @@
+Phase: ContentWords
+Input: Token
+Options: control = once
+
+Rule: PickBestFraming
+(
+ {Token}
+):token
+-->
+{
+	Set<String> types = new HashSet();
+	types.add("Economy_and_Resources");
+	types.add("Religious_Ethical_and_Cultural");
+	types.add("Fairness_Equality_and_Rights");
+	types.add("Law_and_Justice_System");
+	types.add("Crime_and_Punishment");
+	types.add("Security_Defense_and_Well_being");
+	types.add("Health_and_Safety");
+	types.add("Politics");
+	types.add("International_Relations");
+	
+	AnnotationSet annots = doc.getAnnotations().get(types);
+	
+	if (annots == null || annots.size() == 0) return;
+	
+	String type = "";
+	float score = 0;
+	
+	for (Annotation a : annots) {
+		float as = Float.valueOf((String)a.getFeatures().get("score"));
+		
+		if (as > score) {
+			type = a.getType();
+			score = as;
+		}
+	}
+	
+	FeatureMap features = Factory.newFeatureMap();
+	features.put("label",type);
+	
+	gate.Utils.addAnn(outputAS,outputAS,"ArticleFraming",features);
+}

@@ -1,0 +1,81 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+
+
+Phase: Abuse
+Input: Token SlurLookup Split OffensiveLookup SensitiveLookup Veto HatredDiscussion
+Options: control = appelt
+
+
+//First, insults centred on a slur with optional sensitive markers
+
+Rule: EffingIdiotAss
+Priority: 600
+
+( 
+ ({SensitiveLookup} | {OffensiveLookup} | {SlurLookup})[0,5]
+ ({SlurLookup}):pluraltag
+ ({SensitiveLookup} | {OffensiveLookup} | {SlurLookup})[0,5]
+):tag
+--> 
+ :tag.AbuseTerm = {plural = :pluraltag.SlurLookup.plural, rule="abuse:EffingIdiotAss"}
+
+
+
+
+//Second, protected characteristics are offensive in conjunction with at least one offensive word
+
+
+
+Rule: EffingSatanist
+Priority: 600
+
+( 
+ ({SensitiveLookup} | {OffensiveLookup})[1,5]
+ ({OffensiveLookup})[1,5]
+ ({SensitiveLookup} | {OffensiveLookup})[0,5]):tag
+--> 
+ :tag.AbuseTerm = {rule="abuse:EffingSatanist"}
+
+
+
+Rule: WhiteAss
+Priority: 600
+
+( 
+ ({SensitiveLookup} | {OffensiveLookup})[0,5]
+ ({OffensiveLookup})[1,5]
+ ({SensitiveLookup} | {OffensiveLookup})[1,5]):tag
+--> 
+ :tag.AbuseTerm = {rule="abuse:WhiteAss"}
+
+
+
+//Third, enough offensive words starts to look like abuse
+
+
+Rule: SickFuck
+Priority: 600
+
+( 
+ ({OffensiveLookup})[2,8]):tag
+--> 
+ :tag.AbuseTerm = {rule="abuse:SickFuck"}
+
+
+// in some cases we might want to recognise just a single abuse term
+
+Rule: SingleAbuseTerm
+Priority: 200
+
+( 
+ {OffensiveLookup}
+):tag
+--> 
+ :tag.SingleAbuseTerm = {rule="abuse:SingleAbuseTerm"}
+

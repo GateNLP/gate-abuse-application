@@ -1,0 +1,42 @@
+Imports: {
+	import gate.Utils;
+	import org.apache.commons.lang.StringUtils;
+}
+
+Phase: Author
+Input: Tweet
+Options: control = all
+
+Rule: AddTweetAuthor
+({Tweet}):tweet
+-->
+
+{
+	AnnotationSet tweetAnnotations = bindings.get("tweet");
+	Annotation tweetAnnotation = tweetAnnotations.iterator().next();
+	AnnotationSet existingAuthorAnns = Utils.getCoextensiveAnnotations(inputAS, tweetAnnotations, "Author");
+	if (existingAuthorAnns.isEmpty()){
+		if (tweetAnnotation.getFeatures().containsKey("user")) {
+			Map user = (Map) tweetAnnotation.getFeatures().get("user");
+			FeatureMap authorFeatures = Utils.featureMap(
+				"twitter_handle", user.get("screen_name"),
+				"name", user.get("name"), 
+				"description", user.get("description"), 
+				"author_id", user.get("id_str"));
+			Utils.addAnn(outputAS, tweetAnnotations, "Author", authorFeatures);
+		 }
+	} else {
+		String description = "";
+		if (tweetAnnotation.getFeatures().containsKey("user")) {
+			Map user = (Map) tweetAnnotation.getFeatures().get("user");
+			description = (String)user.get("description");
+		}
+		for(Annotation existingAuthor : existingAuthorAnns) {
+			// there was already an author who must therefore be a politician - save their screen name
+			// in a different feature so we can distinguish later
+			existingAuthor.getFeatures().put("politician_handle", existingAuthor.getFeatures().get("twitter_handle"));
+			existingAuthor.getFeatures().put("politician_name", existingAuthor.getFeatures().get("name"));
+			existingAuthor.getFeatures().put("description", description);
+		}
+	}
+}

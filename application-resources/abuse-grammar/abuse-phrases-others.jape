@@ -1,0 +1,136 @@
+Imports: {
+  import gate.Utils;
+  import org.apache.commons.lang.StringUtils;
+  //import java.util.stream.Collectors;
+
+}
+
+Phase: AbusePhrasesOthers
+Input: Token AbuseTerm Split UserMention Person Politician CandidateTarget SingleAbuseTerm Sentence
+Options: control = appelt
+
+/* We separate this from the previous grammar phase AbusePhrases because potentially 
+the abuse could refer to others and me/you, e.g. they are crazy fools like you. So here
+we want to recognise that both them and you are crazy fools, so we have two separate 
+Abuse annotations. I don't think there is a problem with doing this.
+*/
+
+Rule: BlockExistingAbuse
+Priority: 1000
+
+({Sentence contains Abuse})
+-->
+{}
+
+
+Rule: TargetIsAnIdiot
+Priority: 800
+// this is where the word before an "is an idiot" phrase is a candidate target (derived
+// from the sentiment app, so whatever criteria is used there to define target)
+
+
+( 
+ ({CandidateTarget}):target
+ ({Token.string=="is"}|{Token.string=="IS"}|{Token.string=="Is"})
+ (NOT_ANYONE)[0,1]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+
+--> 
+ :tag.Abuse = {target = :target.CandidateTarget@cleanString, confidence = "medium", rule = "abuse-phrases-others:TargetIsAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:TargetIsAnIdiot"}
+
+
+
+
+//THEY ARE AN IDIOT
+//It's complicated because an @mention could be the tweet recipient or a third party.
+//So only allow @mentions if the grammar right after suggests this isn't addressed at the recipient.
+
+Rule: HeIsAnIdiot
+Priority: 600
+
+( 
+ (NEITHER_YOU_NOR_ME|{UserMention}|{Person}|{Politician})
+ ({Token.string=="is"}|{Token.string=="IS"}|{Token.string=="Is"})
+ (NOT_ANYONE)[0,1]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "high", rule = "abuse-phrases-others:HeIsAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:HeIsAnIdiot"}
+
+
+
+
+
+Rule: IsAnIdiot
+Priority: 600
+
+( 
+ ({Token.string=="is"}|{Token.string=="IS"}|{Token.string=="Is"})
+ (NOT_ANYONE)[0,1]
+ ({AbuseTerm}|{SingleAbuseTerm}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "medium", rule = "abuse-phrases-others:IsAnIdiot"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:HeIsAnIdiot"}
+
+
+
+Rule: TheyAreDumbfucks
+Priority: 600
+
+( 
+ (NEITHER_YOU_NOR_ME)
+ ({Token.string=="are"}|{Token.string=="ARE"}|{Token.string=="Are"})
+ (NOT_ANYONE)[0,1]
+ ({AbuseTerm.plural=="true"}|{SingleAbuseTerm.plural == "true"}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "high", rule = "abuse-phrases:TheyAreDumbfucks"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:TheyAreDumbFucks"}
+
+
+Rule: XAreDumbfucks
+Priority: 600
+
+( 
+ ({Token.string=="are"}|{Token.string=="ARE"}|{Token.string=="Are"})
+ (NOT_ANYONE)[0,1]
+ ({AbuseTerm.plural=="true"}|{SingleAbuseTerm.plural == "true"}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "medium", rule = "abuse-phrases-others:XAreDumbfucks"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:XAreDumbFucks"}
+
+
+
+Rule: ThemCrazyFools
+Priority: 600
+
+( 
+ (NEITHER_YOU_NOR_ME)
+ (NOT_ANYONE)[0,2]
+ ({AbuseTerm}|{SingleAbuseTerm.plural == "true"}):tag
+ ):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "high", rule = "abuse-phrases-others:DumbCrazyFools"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:ThemCrazyFools"}
+
+
+
+Rule: ThemCrazyCrazyFools
+Priority: 600
+
+( 
+ (NEITHER_YOU_NOR_ME)
+ (NOT_ANYONE)[3,5]
+ ({AbuseTerm}|{SingleAbuseTerm.plural == "true"}):tag
+):abuse
+--> 
+ :tag.Abuse = {target = "other", confidence = "medium", rule = "abuse-phrases-others:ThemCrazyCrazyFools"},
+  :abuse.AbusePhrase = {rule = "abuse-phrases-others:ThemCrazyCrazyFools"}
+
+
+

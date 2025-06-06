@@ -1,0 +1,19 @@
+environment	head=environment
+energy	modifier=pre
+landfill	head=landfill
+nuclear power	head=energy
+wind power	head=energy
+solar power	head=energy
+fossil fuels	head=fossil fuels
+wave power	head=energy
+green technology	head=green technologies
+green technologies	head=green technologies
+renewable energy	head=energy
+green space	head=green space
+green transport	head=green transport
+eco-system	head=eco-system
+eco-systems	head=eco-system
+environmental sustainability	head=environment
+wind-power	head=energy
+environmentally friendly	=
+natural resources

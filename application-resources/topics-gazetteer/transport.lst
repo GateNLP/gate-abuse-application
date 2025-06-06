@@ -1,0 +1,37 @@
+transport
+trains	head=trains
+railways	head=trains
+railway	head=trains
+rail	head=trains
+motorways	head=motorways
+motorway	head=motorways
+public transport
+fuel prices	head=fuel prices
+fuel price	head=fuel prices
+fuel	category=NN
+fuel duty	head=fuel prices
+railway line	head=trains
+railway lines	head=trains
+train lines	head=trains
+airlines	head=air travel
+air travel	head=air travel
+planes	head=air travel
+jet planes	head=air travel
+aviation	head=air travel
+congestion
+eastcoast
+travel
+london underground
+roads
+airport
+runway
+runways
+airports
+aeroplane
+aeroplanes
+car
+cars
+traffic
+automobile
+automobiles
+road

@@ -1,0 +1,19 @@
+Armed Forces	head=armed forces
+Army	head=armed forces
+Navy	head=armed forces
+Air Force	head=armed forces
+RAF	head=armed forces
+Royal Air Force	head=armed forces
+nuclear missile	head=nuclear weapons
+nuclear missiles	head=nuclear weapons
+nuclear weapons	head=nuclear weapons
+peacekeeping	modifier=head
+defence budget
+troops	modifier=head
+combat troops
+military	modifier=pre
+chemical weapons
+defence and the armed forces	head=armed forces
+nuclear proliferation	head=nuclear weapons
+global security
+marines	head=armed forces

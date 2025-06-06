@@ -1,0 +1,6 @@
+MultiPhase:	AuthorPhases
+Phases: 
+
+author
+split-author-names
+back-up-minor-type
