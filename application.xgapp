@@ -195,10 +195,6 @@
                           <boolean>true</boolean>
                         </entry>
                         <entry>
-                          <string>inputASName</string>
-                          <string>Original markups</string>
-                        </entry>
-                        <entry>
                           <string>annotationTypes</string>
                           <gate.util.persistence.CollectionPersistence>
                             <localList>
@@ -212,6 +208,10 @@
                             </localList>
                             <collectionType>java.util.ArrayList</collectionType>
                           </gate.util.persistence.CollectionPersistence>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Original markups</string>
                         </entry>
                       </localMap>
                     </runtimeParams>
@@ -728,10 +728,6 @@
                           <string>Sentiment</string>
                         </entry>
                         <entry>
-                          <string>inputASName</string>
-                          <string>Sentiment</string>
-                        </entry>
-                        <entry>
                           <string>annotationTypes</string>
                           <gate.util.persistence.CollectionPersistence>
                             <localList>
@@ -740,6 +736,10 @@
                             </localList>
                             <collectionType>java.util.ArrayList</collectionType>
                           </gate.util.persistence.CollectionPersistence>
+                        </entry>
+                        <entry>
+                          <string>inputASName</string>
+                          <string>Sentiment</string>
                         </entry>
                       </localMap>
                     </runtimeParams>
@@ -1429,10 +1429,6 @@
                   <boolean>true</boolean>
                 </entry>
                 <entry>
-                  <string>inputASName</string>
-                  <string>Sentiment</string>
-                </entry>
-                <entry>
                   <string>annotationTypes</string>
                   <gate.util.persistence.CollectionPersistence>
                     <localList>
@@ -1443,6 +1439,10 @@
                     </localList>
                     <collectionType>java.util.ArrayList</collectionType>
                   </gate.util.persistence.CollectionPersistence>
+                </entry>
+                <entry>
+                  <string>inputASName</string>
+                  <string>Sentiment</string>
                 </entry>
               </localMap>
             </runtimeParams>
@@ -2302,12 +2302,12 @@
                   <string>Author</string>
                 </entry>
                 <entry>
-                  <string>matchAtEndOnly</string>
-                  <boolean>false</boolean>
-                </entry>
-                <entry>
                   <string>textFeature</string>
                   <string>splitHandle</string>
+                </entry>
+                <entry>
+                  <string>matchAtEndOnly</string>
+                  <boolean>false</boolean>
                 </entry>
                 <entry>
                   <string>matchAtStartOnly</string>
@@ -2351,12 +2351,12 @@
                   <string>Author</string>
                 </entry>
                 <entry>
-                  <string>matchAtEndOnly</string>
-                  <boolean>false</boolean>
-                </entry>
-                <entry>
                   <string>textFeature</string>
                   <string>splitName</string>
+                </entry>
+                <entry>
+                  <string>matchAtEndOnly</string>
+                  <boolean>false</boolean>
                 </entry>
                 <entry>
                   <string>matchAtStartOnly</string>
@@ -2448,7 +2448,7 @@
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
-          <runMode>1</runMode>
+          <runMode>2</runMode>
           <featureName></featureName>
           <featureValue></featureValue>
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
